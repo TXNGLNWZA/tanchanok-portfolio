@@ -1,0 +1,7 @@
+#!/bin/sh
+# Regenerate the link preview image (public/og-image.jpg) whenever a commit touches the site,
+# so a shared link always shows the current hero. Enabled with: git config core.hooksPath .githooks
+if git diff --cached --name-only | grep -qE '^(src/|index\.html|public/assets/)'; then
+  npm run og --silent || exit 1
+  git add public/og-image.jpg
+fi

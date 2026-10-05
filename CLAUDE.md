@@ -31,8 +31,13 @@ npm run preview    # serve dist/ locally
 ```
 
 Deployed with GitHub + Vercel: pushing to `main` redeploys. Link previews use
-`public/og-image.jpg` (1200x630) and the Open Graph tags in `index.html`, whose URLs must be
-absolute and match the live address; update both if the domain changes.
+`public/og-image.jpg` (1200x630), a screenshot of the real home hero made by
+`npm run og` (`scripts/og-image.mjs`: build, local preview, Chrome screenshot without header,
+facts strip and buttons). The pre-commit hook in `.githooks/` reruns it whenever a commit touches
+`src/`, `index.html` or `public/assets/` (enable once per clone: `git config core.hooksPath
+.githooks`). `vite.config.js` appends an md5 fingerprint (`%OG_VERSION%`) to the og:image URL so
+LinkedIn, Line and Facebook fetch a changed image instead of their cached copy. Open Graph URLs
+must be absolute and match the live address; update them if the domain changes.
 Deploy `dist/` to GitHub Pages, Netlify or Vercel (build command `npm run build`, output `dist`).
 `base: "./"` in `vite.config.js` makes it work at a domain root or a sub-path. Hash routing means
 no server rewrites are needed.
