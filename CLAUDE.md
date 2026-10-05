@@ -28,6 +28,9 @@ npm run build      # production build into dist/
 npm run preview    # serve dist/ locally
 ```
 
+Deployed with GitHub + Vercel: pushing to `main` redeploys. Link previews use
+`public/og-image.jpg` (1200x630) and the Open Graph tags in `index.html`, whose URLs must be
+absolute and match the live address; update both if the domain changes.
 Deploy `dist/` to GitHub Pages, Netlify or Vercel (build command `npm run build`, output `dist`).
 `base: "./"` in `vite.config.js` makes it work at a domain root or a sub-path. Hash routing means
 no server rewrites are needed.
