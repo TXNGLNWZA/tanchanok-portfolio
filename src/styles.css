@@ -2425,3 +2425,7 @@ a.card:focus:not(:focus-visible) {
   margin-top: 0.8rem;
   text-align: center;
 }
+.about .lead + p,
+.about p + p {
+  margin-top: 1rem;
+}

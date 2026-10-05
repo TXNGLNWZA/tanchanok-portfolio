@@ -41,8 +41,8 @@ function Hero() {
             </h1>
           </div>
           <p className="h2-lead">
-            <b>UX/UI Designer</b> I design clear, user-centered digital products, from talking with
-            the people who will use them to user flows and polished interfaces.
+            <b>UX/UI Designer</b> With a background in Computer Science, I turn complex problems into
+            simple, intuitive experiences.
           </p>
           <div className="btns">
             <a className="btn primary" href="#/work">
@@ -311,9 +311,13 @@ export default function Home() {
         <div className="about">
           <div>
             <p className="lead">
-              I like working where research meets code: talking to the people who will use a product,
-              shaping the flow in Figma, then building the interface in React so what ships matches what
-              was tested.
+              I'm a UX/UI designer with a background in Computer Science. I enjoy turning complex
+              problems into simple, intuitive experiences.
+            </p>
+            <p>
+              My experience in business analysis and frontend development helps me connect user needs,
+              business requirements and what is technically possible, at every step of the design
+              process.
             </p>
             <p>
               My favorite projects put me in the room with real users, like sitting with caregivers at an
