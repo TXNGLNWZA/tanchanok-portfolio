@@ -84,7 +84,7 @@ export default function App() {
       main.current.querySelector("h1")?.focus({ preventScroll: true });
       return;
     }
-    document.title = "Tanchanok Juntongkaew — UI/UX Designer";
+    document.title = "Tanchanok Juntongkaew — UX/UI Designer";
     const from = lastCase.current;
     lastCase.current = null;
     if (fresh && from && (path === "work" || path === "")) {

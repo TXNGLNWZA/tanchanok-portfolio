@@ -41,8 +41,8 @@ function Hero() {
             </h1>
           </div>
           <p className="h2-lead">
-            <b>UI/UX designer who builds with React.</b> I research with the people who will use a
-            product, design it in Figma, then build the interface so what ships matches what was tested.
+            <b>UX/UI Designer</b> I design clear, user-centered digital products, from talking with
+            the people who will use them to user flows and polished interfaces.
           </p>
           <div className="btns">
             <a className="btn primary" href="#/work">

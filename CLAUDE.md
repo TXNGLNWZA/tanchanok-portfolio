@@ -1,6 +1,8 @@
 # Tanchanok Juntongkaew — Portfolio
 
-Personal portfolio for Tanchanok Juntongkaew, a UI/UX designer who builds with React.
+Personal portfolio for Tanchanok Juntongkaew, a UX/UI designer. Never use the tagline
+"designer who builds with React" (she rejected it as unprofessional); describe her plainly as a
+UX/UI designer.
 Audience: recruiters and hiring managers for UX/UI design roles (she is not looking for frontend roles). They skim, so the
 home page must show who she is, her strongest work, and how to contact her within seconds.
 
