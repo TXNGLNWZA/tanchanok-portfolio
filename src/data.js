@@ -3,6 +3,7 @@
 const IMG_DIR = `${import.meta.env.BASE_URL}assets/images/`;
 const IMG_SIZES = {
   "hero-bulb": [611, 601],
+  "me": [200, 200],
   "elderly-hero": [1400, 604],
   "elderly-card": [1100, 618],
   "elderly-phone-dose": [274, 574],
@@ -121,6 +122,7 @@ const IMG_SIZES = {
    On the page, srcset lets high-density screens pick the @2x file; the lightbox always
    loads it so zoomed images stay sharp. */
 const HI_RES = {
+  me: 376,
   "art-advisor-graphic": 1800,
   "art-cpp-final": 1080,
   "art-golang-final": 1080,

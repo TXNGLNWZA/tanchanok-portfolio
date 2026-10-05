@@ -40,10 +40,13 @@ function Hero() {
               K<span className="h2-surname">JUNTONGKAEW</span>
             </h1>
           </div>
-          <p className="h2-lead">
-            <b>UX/UI Designer</b> With a background in Computer Science, I turn complex problems into
-            simple, intuitive experiences.
-          </p>
+          <div className="h2-intro">
+            <Img name="me" alt="Tanchanok Juntongkaew" className="h2-me" sizes="72px" />
+            <p className="h2-lead">
+              <b>UX/UI Designer</b> With a background in Computer Science, I turn complex problems into
+              simple, intuitive experiences.
+            </p>
+          </div>
           <div className="btns">
             <a className="btn primary" href="#/work">
               See my work
