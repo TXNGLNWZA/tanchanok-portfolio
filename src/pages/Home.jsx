@@ -60,6 +60,8 @@ function Hero() {
             <a className="h2-link" href={LINKEDIN} target="_blank" rel="noreferrer">
               LinkedIn
             </a>
+            {/* phones only: the bulb as a small sticker instead of the big collage */}
+            <Img name="hero-bulb" className="h2-bulb-mini" alt="" sizes="80px" />
           </div>
         </div>
 

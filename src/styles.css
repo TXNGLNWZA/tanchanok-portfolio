@@ -2459,3 +2459,29 @@ a.card:focus:not(:focus-visible) {
     height: 60px;
   }
 }
+
+/* phones: drop the big bulb collage, keep the bulb as a small sticker by the buttons */
+.h2-bulb-mini {
+  display: none;
+}
+@media (max-width: 640px) {
+  .h2-art {
+    display: none;
+  }
+  .h2-bulb-mini {
+    display: block;
+    width: 74px;
+    margin-left: auto;
+    margin-top: -0.6rem;
+    transform: rotate(-10deg);
+    filter: drop-shadow(0 6px 10px rgba(13, 59, 102, 0.25));
+  }
+  .motion .h2-bulb-mini {
+    animation: bulb-mini 6s ease-in-out infinite;
+  }
+  @keyframes bulb-mini {
+    50% {
+      transform: rotate(-4deg) translateY(-4px);
+    }
+  }
+}
