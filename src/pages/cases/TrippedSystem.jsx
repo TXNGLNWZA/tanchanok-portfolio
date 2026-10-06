@@ -71,8 +71,8 @@ export function StyleGuide() {
           <figcaption>Download · round icon</figcaption>
         </figure>
         <figure>
-          <ThemeTags />
-          <figcaption>Theme label · tap a theme</figcaption>
+          <span className="kit-tag">Nature | Culture | Society</span>
+          <figcaption>Theme label · display only</figcaption>
         </figure>
       </Kit>
       <p className="kit-hint">These are live: hover, click and type to try them.</p>
@@ -100,29 +100,5 @@ function DownloadButton() {
         <path className="kit-dl-check" d="M6 12.5l4 4 8-9" stroke="#ccf32f" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </button>
-  );
-}
-
-/* Theme label: each theme switches on and off, like choosing what a trip is about. */
-function ThemeTags() {
-  const all = ["Nature", "Culture", "Society"];
-  const [on, setOn] = useState(all);
-  const [popped, setPopped] = useState(null);
-  const toggle = (t) => {
-    setOn((v) => (v.includes(t) ? v.filter((x) => x !== t) : [...v, t]));
-    setPopped(t);
-    setTimeout(() => setPopped(null), 320);
-  };
-  return (
-    <span className="kit-tag" role="group" aria-label="Trip themes">
-      {all.map((t, i) => (
-        <span key={t}>
-          {i > 0 && <span className="kit-sep"> | </span>}
-          <button type="button" className={[on.includes(t) && "on", popped === t && "pop"].filter(Boolean).join(" ") || undefined} aria-pressed={on.includes(t)} onClick={() => toggle(t)}>
-            {t}
-          </button>
-        </span>
-      ))}
-    </span>
   );
 }

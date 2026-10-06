@@ -134,7 +134,8 @@ Derived from her original portfolio design (a long collage-style Figma/Canva pag
   out of the iPhone mockups embedded in her pitch deck `Downloads/Tripped_วช.pdf`).
 - **Live design-system components:** TRIPPED's kit is real controls (type in the search field,
   hover/press states using the build's `#071069` hover blue, the accent pill's arrow slides, the
-  download icon drops its arrow then shows a check, theme words toggle). Color swatches on every
+  download icon drops its arrow then shows a check). The theme label is display text in the app,
+  so it stays non-interactive: only make things clickable that are controls in the real design. Color swatches on every
   case study copy their hex on click. Image-based kits (Elderly care) lift on hover and enlarge on
   click. A `.kit-hint` line invites people to try them.
 - **Garment turntable:** `<Spin front back alt label>` (`Spin.jsx`) shows front and back artwork on
