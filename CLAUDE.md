@@ -84,8 +84,8 @@ no server rewrites are needed.
 
 Derived from her original portfolio design (a long collage-style Figma/Canva page). Keep it.
 
-- **Two themes, Night and Day** (`Theme.jsx`): a labeled Night / Day switch in the header so
-  visitors see both exist; the choice is saved in `localStorage` (`theme`), otherwise the system
+- **Two themes, Night and Day** (`Theme.jsx`): an icon-only Night / Day switch in the header (moon and
+  leaf; labels are screen-reader only, tooltips explain each) so visitors see both exist; the choice is saved in `localStorage` (`theme`), otherwise the system
   setting is used. An inline script in `index.html` sets `<html data-theme>` before first paint.
   Colors are tokens in `:root` (Day) with Night overrides under `[data-theme="dark"]`; shadows use
   `rgba(var(--shade), a)` and text on yellow uses `var(--on-sun)` so both follow the theme.

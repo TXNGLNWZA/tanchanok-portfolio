@@ -2534,6 +2534,18 @@ a.card:focus:not(:focus-visible) {
 .theme-toggle svg {
   flex: none;
 }
+/* icons only; the label stays for screen readers and the tooltip explains each theme */
+.theme-toggle span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.theme-toggle button {
+  padding: 0.38rem 0.5rem;
+}
 @media (max-width: 640px) {
   .theme-toggle button {
     padding: 0.35rem 0.45rem;
