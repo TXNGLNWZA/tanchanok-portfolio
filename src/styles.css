@@ -3196,3 +3196,54 @@ html.theme-fade *::after {
 .merch-row > figure.plated {
   display: grid;
 }
+/* lightbox gallery: previous / next on the sides, counter and page name below */
+dialog.lb .lb-nav {
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  margin-top: -28px;
+}
+dialog.lb .lb-prev {
+  left: 1rem;
+  right: auto;
+}
+dialog.lb .lb-next {
+  right: 1rem;
+}
+dialog.lb .lb-nav:hover {
+  transform: scale(1.08);
+}
+dialog.lb img {
+  max-height: 82vh;
+}
+.lb-count {
+  position: fixed;
+  left: 50%;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 0.9rem);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(8, 20, 34, 0.7);
+  color: #fff;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+.lb-count b {
+  color: #f5d93b;
+}
+@media (max-width: 640px) {
+  dialog.lb .lb-nav {
+    top: auto;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 0.6rem);
+    margin-top: 0;
+    width: 46px;
+    height: 46px;
+  }
+  .lb-count {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 1.1rem);
+  }
+}

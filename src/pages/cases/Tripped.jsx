@@ -110,6 +110,8 @@ const GUIDE_PAGES = [
   ["Back cover", "Back cover: Plan, Explore, Discover"],
 ];
 
+const GUIDE_GALLERY = GUIDE_PAGES.map(([label, alt], i) => ({ name: `tripped-guide-p${i + 1}`, alt, label }));
+
 const logoTile = { aspectRatio: "4/3", display: "flex", alignItems: "center", justifyContent: "center" };
 const logoSize = { width: "min(46%, 180px)" };
 
@@ -252,7 +254,7 @@ export default function Tripped({ project }) {
         <ol className="guide-pages">
           {GUIDE_PAGES.map(([label, alt], i) => (
             <li key={label}>
-              <Img name={`tripped-guide-p${i + 1}`} alt={alt} zoom sizes="(max-width: 860px) 30vw, 180px" />
+              <Img name={`tripped-guide-p${i + 1}`} alt={alt} zoom sizes="(max-width: 860px) 30vw, 180px" gallery={GUIDE_GALLERY} index={i} />
               <span>
                 {i + 1}. {label}
               </span>
