@@ -174,7 +174,10 @@ export default function Tripped({ project }) {
             zoom
             sizes="(max-width: 940px) 100vw, 900px"
           />
-          <figcaption>The pitch in one picture: search, choose a trip, get the guide.</figcaption>
+          <figcaption>
+            I also designed this infographic to pitch the app in one picture: search, choose a trip, get the
+            guide.
+          </figcaption>
         </figure>
       </Sec>
 
