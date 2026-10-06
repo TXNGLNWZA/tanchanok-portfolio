@@ -2898,3 +2898,112 @@ html.theme-fade *::after {
 .firefly-field span:not([style]) {
   display: none;
 }
+
+/* INITS workshop: name tags shown as hanging lanyard badges */
+.lanyards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(1.2rem, 8vw, 6rem);
+  padding: 0 clamp(0.8rem, 4vw, 3rem) clamp(1.8rem, 4vw, 2.6rem);
+  border-radius: 22px;
+  background: var(--tint-blue);
+  overflow: hidden;
+}
+.lanyard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(300px, 44%);
+}
+/* strap, clip and card swing together; the caption below stays level */
+.lanyard-hang {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  transform-origin: 50% 0;
+  transition: transform 0.6s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.lanyard.staff .lanyard-hang {
+  transform: rotate(-3deg);
+}
+.lanyard.guest .lanyard-hang {
+  transform: rotate(3deg);
+}
+.lanyard:hover .lanyard-hang {
+  transform: rotate(0deg);
+}
+.lanyard-strap {
+  display: block;
+  width: 56%;
+  height: clamp(60px, 9vw, 100px);
+  overflow: visible;
+}
+.lanyard-strap path {
+  fill: none;
+  stroke: var(--strap);
+  stroke-width: 9;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.lanyard.staff {
+  --strap: #1a1a1a;
+}
+.lanyard.guest {
+  --strap: #1d3a5c;
+}
+.lanyard-clip {
+  position: relative;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  margin-top: -6px;
+  border-radius: 6px 6px 3px 3px;
+  background: linear-gradient(180deg, #eef1f3, #9aa6ae);
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.18);
+}
+.lanyard-clip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 46px;
+  height: 9px;
+  margin-left: -23px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #d5dce1, #8c98a1);
+}
+.lanyard .zoom {
+  margin-top: 4px;
+}
+.lanyard-card {
+  border-radius: 14px;
+  box-shadow:
+    0 22px 40px rgba(0, 0, 0, 0.28),
+    0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.lanyard figcaption {
+  margin-top: 1.2rem;
+  max-width: 17rem;
+}
+.lanyard figcaption b {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--ink);
+  font-size: 1rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lanyard-hang {
+    transition: none;
+  }
+}
+@media (max-width: 640px) {
+  .lanyard figcaption {
+    font-size: 0.84rem;
+  }
+  .lanyard-clip::after {
+    width: 34px;
+    margin-left: -17px;
+  }
+}

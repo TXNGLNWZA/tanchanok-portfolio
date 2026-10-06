@@ -9,6 +9,23 @@ const PROCESS = [
   { title: "Interview", text: "Ran structured interviews and mentored new members.", tags: ["Interviews", "Mentoring"] },
 ];
 
+const TAGS = [
+  {
+    img: "inits-nametag-dark",
+    tone: "staff",
+    label: "Staff",
+    text: "Black tag, so participants can spot who to ask for help.",
+    alt: "Black staff name tag reading How to Train Your AI, Tang",
+  },
+  {
+    img: "inits-nametag-light",
+    tone: "guest",
+    label: "Participant",
+    text: "White tag with the same frame, so the set still feels like one.",
+    alt: "White participant name tag reading How to Train Your AI, Tawan",
+  },
+];
+
 export default function Inits({ project }) {
   return (
     <CaseStudy
@@ -27,22 +44,32 @@ export default function Inits({ project }) {
       </Sec>
 
       <Sec title="Workshop: How to Train Your AI">
-        <div className="g2" style={{ alignItems: "center" }}>
-          <Photo name="inits-workshop-poster" alt="Workshop poster for How to Train Your AI" />
-          <div className="plated p-blue" style={{ display: "flex", gap: "6%", justifyContent: "center" }}>
-            <Img
-              name="inits-nametag-dark"
-              alt="Dark name tag design"
-              zoom
-              style={{ width: "40%", transform: "rotate(-4deg)" }}
-            />
-            <Img
-              name="inits-nametag-light"
-              alt="Light name tag design"
-              zoom
-              style={{ width: "40%", transform: "rotate(4deg)" }}
-            />
-          </div>
+        <div className="cs-text">
+          <p>
+            For the club's AI workshop I designed the poster and the name tags. The tags come in two
+            colors so anyone in the room can tell at a glance who is running the workshop and who is
+            taking part.
+          </p>
+        </div>
+        <figure className="mt">
+          <Img name="inits-workshop-poster" alt="Workshop poster for How to Train Your AI" zoom style={{ borderRadius: "14px" }} />
+        </figure>
+        <div className="lanyards mt">
+          {TAGS.map((t) => (
+            <figure key={t.img} className={`lanyard ${t.tone}`}>
+              <div className="lanyard-hang">
+                <svg className="lanyard-strap" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M8 0 L44 100 M92 0 L56 100" />
+                </svg>
+                <span className="lanyard-clip" aria-hidden="true" />
+                <Img name={t.img} alt={t.alt} zoom className="lanyard-card" sizes="(max-width: 640px) 44vw, 300px" />
+              </div>
+              <figcaption>
+                <b>{t.label}</b>
+                {t.text}
+              </figcaption>
+            </figure>
+          ))}
         </div>
         <figure className="mt">
           <Img
