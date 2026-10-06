@@ -118,7 +118,6 @@ export function Swatches({ colors }) {
           </li>
         ))}
       </ul>
-      <p className="kit-hint">Click a color to copy its hex code.</p>
     </>
   );
 }

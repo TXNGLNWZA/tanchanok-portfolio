@@ -440,7 +440,6 @@ export default function ElderlyCare({ project }) {
         <TypeSpecimens rows={TYPE} />
         <h3 className="sg-h">Try the components</h3>
         <ElderlyLiveKit />
-        <p className="kit-hint">These are live: click the button, filters, days and ให้ยา, or type in the field.</p>
         <KitGroups groups={KIT} label="Care center UI components" />
       </Sec>
     </CaseStudy>

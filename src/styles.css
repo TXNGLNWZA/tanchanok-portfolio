@@ -3264,15 +3264,6 @@ dialog.lb {
 }
 
 /* ---------- live design-system components ---------- */
-.kit-hint {
-  margin: 0.7rem 0 0;
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-.kit-hint::before {
-  content: "✦ ";
-  color: var(--sun);
-}
 /* TRIPPED */
 .kit-input {
   cursor: text;

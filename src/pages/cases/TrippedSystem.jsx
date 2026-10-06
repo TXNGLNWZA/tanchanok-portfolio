@@ -75,7 +75,6 @@ export function StyleGuide() {
           <figcaption>Theme label · display only</figcaption>
         </figure>
       </Kit>
-      <p className="kit-hint">These are live: hover, click and type to try them.</p>
     </>
   );
 }

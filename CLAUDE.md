@@ -137,7 +137,7 @@ Derived from her original portfolio design (a long collage-style Figma/Canva pag
   download icon drops its arrow then shows a check). The theme label is display text in the app,
   so it stays non-interactive: only make things clickable that are controls in the real design. Color swatches on every
   case study copy their hex on click. Image-based kits (Elderly care) lift on hover and enlarge on
-  click. A `.kit-hint` line invites people to try them.
+  click. No "these are live" hint lines: Tanchanok removed them.
 - **Garment turntable:** `<Spin front back alt label>` (`Spin.jsx`) shows front and back artwork on
   a 3D card that turns slowly, can be dragged, and has Front / Back buttons and arrow keys. It is a
   flat card turning, not a modeled garment (only front and back views exist). Used for the INITS
