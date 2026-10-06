@@ -3182,3 +3182,17 @@ html.theme-fade *::after {
   font-size: 0.8rem;
   opacity: 0.8;
 }
+
+/* Art Team merch: both plates the same height, content centered in each */
+.merch-row {
+  align-items: stretch;
+}
+.merch-row > .plated {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+.merch-row > figure.plated {
+  display: grid;
+}

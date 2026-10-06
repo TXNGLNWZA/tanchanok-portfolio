@@ -35,7 +35,7 @@ export default function ArtTeam({ project }) {
       </Sec>
 
       <Sec title="Faculty merch">
-        <div className="g2" style={{ alignItems: "center" }}>
+        <div className="g2 merch-row">
           <div className="plated p-sun">
             <Spin
               front="art-tshirt-front"
@@ -47,7 +47,7 @@ export default function ArtTeam({ project }) {
           </div>
           <figure
             className="plated p-blue"
-            style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "1rem", alignItems: "center" }}
+            style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "1rem", alignItems: "center", alignContent: "center" }}
           >
             <Img name="art-charm" alt="Atom-shaped acrylic charm" />
             <Img name="art-keychain" alt="Heart-shaped keychains with an ERROR tag" zoom />
