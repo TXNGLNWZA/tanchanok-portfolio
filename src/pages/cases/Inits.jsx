@@ -1,6 +1,7 @@
 import { CaseStudy, Sec } from "../../components/CaseStudy.jsx";
 import { Img, Photo } from "../../components/Img.jsx";
 import { Process } from "../../components/DesignSystem.jsx";
+import { Spin } from "../../components/Spin.jsx";
 
 const PROCESS = [
   { title: "Design", text: "Made posters, name tags and the club shirt.", tags: ["Posters", "Merch"] },
@@ -96,14 +97,20 @@ export default function Inits({ project }) {
       </Sec>
 
       <Sec title="The official shirt">
-        <figure className="plated p-paper">
-          <Img
-            name="inits-shirt"
-            alt="Navy INITS polo shirt, back and front"
-            zoom
-            style={{ maxWidth: "720px", margin: "0 auto" }}
+        <div className="cs-text">
+          <p>
+            The club polo: the INITS mark on the chest, and the full name, Innovation Network
+            Integrating Technology for Society, across the back.
+          </p>
+        </div>
+        <div className="plated p-paper mt">
+          <Spin
+            front="inits-shirt-front"
+            back="inits-shirt-back"
+            alt="Navy INITS polo shirt on a turntable"
+            label="Shirt side"
           />
-        </figure>
+        </div>
       </Sec>
     </CaseStudy>
   );

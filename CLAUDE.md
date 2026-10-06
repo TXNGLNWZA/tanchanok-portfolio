@@ -129,6 +129,10 @@ Derived from her original portfolio design (a long collage-style Figma/Canva pag
   frame; `hot: [x, y, w, h]` (0..1 of the screen image) is the tap target. Demo screens are
   `demo-eld-*` (Figma frames from the project report) and `demo-trm-*` (TRIPPED phone screens with Phuket sample data, cropped
   out of the iPhone mockups embedded in her pitch deck `Downloads/Tripped_วช.pdf`).
+- **Garment turntable:** `<Spin front back alt label>` (`Spin.jsx`) shows front and back artwork on
+  a 3D card that turns slowly, can be dragged, and has Front / Back buttons and arrow keys. It is a
+  flat card turning, not a modeled garment (only front and back views exist). Used for the INITS
+  polo (`inits-shirt-front` / `-back`, split from `inits-shirt`).
 - **Annotated screens:** `<Annotated img callouts>` puts numbered callouts with leader lines on a
   phone screen (x, y as 0..1 of the image). Labels must describe only what is on the screen.
 - Must stay responsive (breakpoints 860px and 640px), keyboard accessible, and work in dark mode.

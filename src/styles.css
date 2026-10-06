@@ -3078,3 +3078,81 @@ html.theme-fade *::after {
     margin-inline: auto;
   }
 }
+
+/* garment turntable (Spin.jsx) */
+.spin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.spin-stage {
+  --turn: 1;
+  position: relative;
+  width: min(420px, 80%);
+  padding-bottom: 28px;
+  perspective: 1400px;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+.spin-stage.grabbing {
+  cursor: grabbing;
+}
+.spin-stage:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 6px;
+  border-radius: 16px;
+}
+.spin-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.spin-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.spin-face img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.18));
+}
+.spin-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+.spin-floor {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 70%;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.22), transparent);
+  transform: translateX(-50%) scaleX(calc(0.25 + 0.75 * var(--turn)));
+}
+.spin-controls {
+  display: inline-flex;
+  gap: 2px;
+  margin-top: 0.6rem;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.spin-controls button {
+  padding: 0.35rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: 600 0.85rem var(--display);
+  cursor: pointer;
+}
+.spin-controls button.on {
+  background: var(--ink);
+  color: var(--bg);
+}
