@@ -112,7 +112,7 @@ const IMG_SIZES = {
   "inits-recruit-retro": [800, 800],
   "inits-recruit-robot": [800, 800],
   "inits-shirt": [900, 462],
-  "logo-inits": [900, 279],
+  "logo-inits": [883, 228],
   "logo-dti": [468, 222],
   "logo-museum-diary": [800, 291],
   "logo-elephant": [300, 300],

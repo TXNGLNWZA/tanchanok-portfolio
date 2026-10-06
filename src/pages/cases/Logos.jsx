@@ -2,12 +2,38 @@ import { CaseStudy, Sec } from "../../components/CaseStudy.jsx";
 import { Img } from "../../components/Img.jsx";
 import { Process } from "../../components/DesignSystem.jsx";
 
-const pad = "clamp(2rem,6vw,4rem)";
-
 const PROCESS = [
   { title: "Study", text: "Look at the subject: a club, a museum, a university.", tags: ["Research"] },
   { title: "One idea", text: "Pick one idea from it: brackets, an elephant, a dome.", tags: ["Concept"] },
   { title: "Build the mark", text: "Build the logo around that single idea.", tags: ["Logo design"] },
+];
+
+const LOGOS = [
+  {
+    name: "INITS",
+    img: "logo-inits",
+    alt: "INITS logo: code brackets around the letters",
+    tone: "light",
+    idea: "Code brackets",
+    text: "The club's official logo. The brackets stand for its coding roots.",
+  },
+  {
+    name: "Museum Diary",
+    img: "logo-museum-diary",
+    extra: "logo-elephant",
+    alt: "Museum Diary logo, with people drawn to form an elephant",
+    tone: "light",
+    idea: "An elephant",
+    text: "A concept brand with Thai identity at its core. The people in it form an elephant.",
+  },
+  {
+    name: "Digital Technology and Innovation",
+    img: "logo-dti",
+    alt: "Digital Technology and Innovation logo built on the university dome",
+    tone: "dark",
+    idea: "The dome",
+    text: "A competition entry anchored on the university's iconic dome.",
+  },
 ];
 
 export default function Logos({ project }) {
@@ -27,46 +53,24 @@ export default function Logos({ project }) {
         <Process steps={PROCESS} />
       </Sec>
 
-      <Sec title="INITS">
+      <Sec title="Selected logos">
         <div className="cs-text">
-          <p>
-            The official logo of INITS. The code brackets in the mark represent the club's coding roots.
-          </p>
+          <p>Three identities, each built around a single idea taken from its subject.</p>
         </div>
-        <div className="mt plated p-paper" style={{ padding: pad }}>
-          <Img name="logo-inits" alt="INITS logo" style={{ width: "min(560px,90%)", margin: "0 auto" }} />
-        </div>
-      </Sec>
-
-      <Sec title="Museum Diary">
-        <div className="cs-text">
-          <p>
-            Designed with Thai cultural identity at its core. The illustration of people subtly forms the
-            shape of an elephant.
-          </p>
-        </div>
-        <div
-          className="mt plated p-paper"
-          style={{ padding: pad, display: "flex", alignItems: "center", justifyContent: "center", gap: "6%" }}
-        >
-          <Img name="logo-elephant" alt="Elephant silhouette" style={{ width: "min(120px,20%)" }} />
-          <Img name="logo-museum-diary" alt="Museum Diary logo" style={{ width: "min(460px,65%)" }} />
-        </div>
-      </Sec>
-
-      <Sec title="Digital Technology and Innovation">
-        <div className="cs-text">
-          <p>
-            A logo designed for a competition. The design draws on the university's iconic dome as a
-            visual anchor.
-          </p>
-        </div>
-        <div className="mt plated p-ink" style={{ padding: pad }}>
-          <Img
-            name="logo-dti"
-            alt="Digital Technology and Innovation logo"
-            style={{ width: "min(460px,90%)", margin: "0 auto" }}
-          />
+        <div className="logo-grid">
+          {LOGOS.map((l) => (
+            <figure key={l.name} className="logo-card">
+              <div className={`logo-plate ${l.tone}`}>
+                {l.extra && <Img name={l.extra} alt="" className="logo-extra" sizes="80px" />}
+                <Img name={l.img} alt={l.alt} zoom className="logo-mark" sizes="(max-width: 860px) 80vw, 320px" />
+              </div>
+              <figcaption>
+                <b>{l.name}</b>
+                <span className="logo-idea">{l.idea}</span>
+                {l.text}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </Sec>
     </CaseStudy>
