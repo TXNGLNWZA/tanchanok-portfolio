@@ -132,7 +132,9 @@ Derived from her original portfolio design (a long collage-style Figma/Canva pag
 - **Garment turntable:** `<Spin front back alt label>` (`Spin.jsx`) shows front and back artwork on
   a 3D card that turns slowly, can be dragged, and has Front / Back buttons and arrow keys. It is a
   flat card turning, not a modeled garment (only front and back views exist). Used for the INITS
-  polo (`inits-shirt-front` / `-back`, split from `inits-shirt`).
+  polo (`inits-shirt-front` / `-back`, split from `inits-shirt`) and the Art Team T-shirt
+  (`art-tshirt-front` / `-back`; the two shirts overlapped at the sleeves in `art-tshirt`, so each
+  hidden sleeve was rebuilt by mirroring that shirt's other sleeve). Optional `caption` prop.
 - **Annotated screens:** `<Annotated img callouts>` puts numbered callouts with leader lines on a
   phone screen (x, y as 0..1 of the image). Labels must describe only what is on the screen.
 - Must stay responsive (breakpoints 860px and 640px), keyboard accessible, and work in dark mode.

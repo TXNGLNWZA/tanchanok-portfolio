@@ -1,6 +1,7 @@
 import { CaseStudy, Sec } from "../../components/CaseStudy.jsx";
 import { Img, Photo } from "../../components/Img.jsx";
 import { Process } from "../../components/DesignSystem.jsx";
+import { Spin } from "../../components/Spin.jsx";
 
 const HOUSES = [
   ["art-java-sketch", "art-java-final", "Java"],
@@ -35,13 +36,15 @@ export default function ArtTeam({ project }) {
 
       <Sec title="Faculty merch">
         <div className="g2" style={{ alignItems: "center" }}>
-          <figure className="plated p-sun">
-            <Img name="art-tshirt" alt="Black faculty T-shirt, front and back" zoom />
-            <figcaption>
-              Co-designed the faculty T-shirt with the Art Team. It was produced and sold to students
-              across the faculty.
-            </figcaption>
-          </figure>
+          <div className="plated p-sun">
+            <Spin
+              front="art-tshirt-front"
+              back="art-tshirt-back"
+              alt="Black faculty T-shirt on a turntable"
+              label="Shirt side"
+              caption="Co-designed the faculty T-shirt with the Art Team. It was produced and sold to students across the faculty."
+            />
+          </div>
           <figure
             className="plated p-blue"
             style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "1rem", alignItems: "center" }}

@@ -5,7 +5,7 @@ import { Img } from "./Img.jsx";
    slowly on its own; drag (or swipe) to spin it, or use the Front / Back buttons and the arrow
    keys. Only front and back views exist, so in between it is a flat card turning in 3D, not a
    modeled garment. Under prefers-reduced-motion it does not turn on its own. */
-export function Spin({ front, back, alt, label }) {
+export function Spin({ front, back, alt, label, caption }) {
   const stage = useRef(null);
   const card = useRef(null);
   const angle = useRef(-24);
@@ -115,7 +115,10 @@ export function Spin({ front, back, alt, label }) {
           </button>
         ))}
       </div>
-      <figcaption>Drag to turn the shirt, or tap Front and Back.</figcaption>
+      <figcaption>
+        {caption && <span className="spin-caption">{caption}</span>}
+        <span className="spin-hint">Drag to turn the shirt, or tap Front and Back.</span>
+      </figcaption>
     </figure>
   );
 }

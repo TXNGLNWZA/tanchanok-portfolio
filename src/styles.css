@@ -3172,3 +3172,13 @@ html.theme-fade *::after {
   background: var(--ink);
   color: var(--bg);
 }
+
+.spin-caption {
+  display: block;
+}
+.spin-caption + .spin-hint {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
