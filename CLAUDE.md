@@ -117,7 +117,8 @@ Derived from her original portfolio design (a long collage-style Figma/Canva pag
   already on the site or in her CV.
 - **Case-study sections:** always heading (`<Sec>`) → plain paragraph in `.cs-text` → visuals.
   No handwritten intro lines and no body text placed below the images; captions go in
-  `<figcaption>`. The hand font is only for small annotations on images and cards.
+  `<figcaption>`, always centered under their image (global `figcaption` rule; Tanchanok wants one
+  pattern everywhere, including labels under component samples). The hand font is only for small annotations on images and cards.
 - **Motion:** content eases up the first time it scrolls into view (`useReveal.js`, selectors in
   `TARGETS`), process dots pop in, annotation lines draw in, fireflies drift in the home hero and slowly gather at the pointer, the bulb floats. All of it is off under
   `prefers-reduced-motion` and the page is fully visible without JS. Keep motion subtle.
