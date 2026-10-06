@@ -199,8 +199,13 @@ Derived from her original portfolio design (a long collage-style Figma/Canva pag
   and `#071386` / `#071069` come from the TRIPPED React source; other colors were sampled
   from the designs. `tripped-pdf-*` and `tripped-guide-p1..6` are rendered from the original
   Lampang itinerary PDFs in the TRIPPED frontend repo (`public/`).
-- Elderly care design system: font Khwan Thong confirmed by Tanchanok. It is not a web font,
-  so type specimens and components are crops of the 1920px login screenshot. Colors were sampled
+- Elderly care design system: font Khwan Thong confirmed by Tanchanok. Its license is exclusive
+  to Srinakharinwirot University (fsType 4, no web embedding), so the font file must never be
+  shipped. The live components (`ElderlyKit.jsx`: primary button, text field, status filters,
+  date chips, medication card, status badges) draw their Thai text from `khwanThong.js`, outlines
+  of only those words shaped with HarfBuzz from her local copy (Tanchanok chose this). To add a
+  word, rerun the outline script with the font from `Downloads/Khwan-Thong-Fontset...`. Type
+  specimens and the remaining image components are crops of the 1920px screens. Colors were sampled
   from the screens.
 - DOK-MAI design system is colors only (sampled from the screens). Type and component crops were
   removed because the source screens (~270px wide, from the portfolio PDF) are too low-res; add

@@ -2,6 +2,7 @@ import { CaseStudy, Sec, BeforeAfter } from "../../components/CaseStudy.jsx";
 import { Img, Photo } from "../../components/Img.jsx";
 import { Process, Annotated, Swatches, TypeSpecimens, KitGroups } from "../../components/DesignSystem.jsx";
 import { Walkthrough } from "../../components/Walkthrough.jsx";
+import { ElderlyLiveKit } from "./ElderlyKit.jsx";
 import { InfoCards, StatTiles, FixCards } from "../../components/Story.jsx";
 
 const PROCESS = [
@@ -183,18 +184,12 @@ const KIT = [
         tint: true,
       },
       { img: "elderly-lib-types", alt: "Radio group for item type", name: "Item type", note: "One choice per item.", tint: true },
-      { img: "elderly-ui-field", alt: "Username field with a label and a person icon", name: "Text field with icon" },
-      { img: "elderly-ui-button", alt: "Orchid primary button", name: "Primary button" },
     ],
   },
   {
-    title: "Data and status",
+    title: "Tables",
     items: [
       { img: "elderly-ui-thead", alt: "Lilac table header with sortable columns", name: "Table header", note: "Sortable columns.", wide: true },
-      { img: "elderly-ui-badges", alt: "Status badges: taken, taken late, not taken", name: "Status badges" },
-      { img: "elderly-ui-filters", alt: "Status filter pills: pending, approved, rejected", name: "Status filters", note: "Mobile" },
-      { img: "elderly-ui-dates", alt: "Date chips with the selected day in deep plum", name: "Date chips", note: "Mobile" },
-      { img: "elderly-ui-dose", alt: "Resident card with a button to record the dose", name: "Medication card", note: "Mobile" },
     ],
   },
 ];
@@ -443,6 +438,9 @@ export default function ElderlyCare({ project }) {
         </div>
         <Swatches colors={COLORS} />
         <TypeSpecimens rows={TYPE} />
+        <h3 className="sg-h">Try the components</h3>
+        <ElderlyLiveKit />
+        <p className="kit-hint">These are live: click the button, filters, days and ให้ยา, or type in the field.</p>
         <KitGroups groups={KIT} label="Care center UI components" />
       </Sec>
     </CaseStudy>
