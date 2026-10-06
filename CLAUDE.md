@@ -132,6 +132,11 @@ Derived from her original portfolio design (a long collage-style Figma/Canva pag
   frame; `hot: [x, y, w, h]` (0..1 of the screen image) is the tap target. Demo screens are
   `demo-eld-*` (Figma frames from the project report) and `demo-trm-*` (TRIPPED phone screens with Phuket sample data, cropped
   out of the iPhone mockups embedded in her pitch deck `Downloads/Tripped_วช.pdf`).
+- **Live design-system components:** TRIPPED's kit is real controls (type in the search field,
+  hover/press states using the build's `#071069` hover blue, the accent pill's arrow slides, the
+  download icon drops its arrow then shows a check, theme words toggle). Color swatches on every
+  case study copy their hex on click. Image-based kits (Elderly care) lift on hover and enlarge on
+  click. A `.kit-hint` line invites people to try them.
 - **Garment turntable:** `<Spin front back alt label>` (`Spin.jsx`) shows front and back artwork on
   a 3D card that turns slowly, can be dragged, and has Front / Back buttons and arrow keys. It is a
   flat card turning, not a modeled garment (only front and back views exist). Used for the INITS

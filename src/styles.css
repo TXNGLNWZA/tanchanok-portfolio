@@ -3262,3 +3262,230 @@ dialog.lb img {
 dialog.lb {
   overscroll-behavior: contain;
 }
+
+/* ---------- live design-system components ---------- */
+.kit-hint {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.kit-hint::before {
+  content: "✦ ";
+  color: var(--sun);
+}
+/* TRIPPED */
+.kit-input {
+  cursor: text;
+  transition:
+    box-shadow 0.2s,
+    background 0.2s;
+}
+.kit-input input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #141841;
+  font: inherit;
+}
+.kit-input input::placeholder {
+  color: #9ca3af;
+}
+.kit-input:hover {
+  background: #fff;
+}
+.kit-input:focus-within {
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(7, 19, 134, 0.18);
+}
+.kit-input svg {
+  transition:
+    color 0.2s,
+    transform 0.25s;
+}
+.kit-input:focus-within svg {
+  color: #071386;
+  transform: scale(1.12) rotate(-8deg);
+}
+.kit-btn {
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+.kit-btn:hover {
+  background: #071069;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(7, 19, 134, 0.28);
+}
+.kit-btn:active {
+  transform: translateY(0) scale(0.95);
+  box-shadow: none;
+}
+.kit-btn.lime:hover {
+  background: #b9e01c;
+  box-shadow: 0 8px 18px rgba(130, 160, 10, 0.35);
+}
+.kit-arrow {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.kit-btn:hover .kit-arrow {
+  transform: translateX(5px);
+}
+.kit-btn:active .kit-arrow {
+  transform: translateX(10px);
+}
+.kit-icon {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    background 0.2s,
+    box-shadow 0.2s;
+}
+.kit-icon:hover {
+  background: #071069;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(7, 19, 134, 0.28);
+}
+.kit-icon:active {
+  transform: scale(0.92);
+}
+.kit-icon:hover .kit-dl-arrow {
+  animation: dl-bob 0.9s ease-in-out infinite;
+}
+@keyframes dl-bob {
+  50% {
+    transform: translateY(2px);
+  }
+}
+.kit-dl-check {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 22;
+}
+.kit-icon.busy .kit-dl-arrow {
+  animation: dl-drop 0.6s ease-in forwards;
+}
+@keyframes dl-drop {
+  to {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+.kit-icon.done .kit-dl-arrow,
+.kit-icon.done .kit-dl-tray {
+  opacity: 0;
+}
+.kit-icon.done .kit-dl-check {
+  transition: stroke-dashoffset 0.35s ease-out;
+  stroke-dashoffset: 0;
+}
+.kit-icon.done {
+  animation: dl-pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+@keyframes dl-pop {
+  50% {
+    transform: scale(1.12);
+  }
+}
+.kit-tag button {
+  padding: 0.1rem 0.2rem;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #b5b9dd;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    background 0.2s,
+    transform 0.15s;
+}
+.kit-tag button.on {
+  color: #071386;
+}
+.kit-tag button:hover {
+  background: #d3d6ee;
+}
+.kit-tag button:active {
+  transform: scale(0.94);
+}
+.kit-sep {
+  color: #071386;
+}
+/* color swatches: click to copy */
+.swatches .chip {
+  position: relative;
+  width: 100%;
+  border: 0;
+  cursor: copy;
+  font: 700 1.3rem Montserrat, var(--display);
+  text-align: left;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.swatches .chip:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 0 0 1.5px var(--line),
+    0 10px 20px rgba(var(--shade), 0.18);
+}
+.swatches .chip:active {
+  transform: scale(0.96);
+}
+.chip-copy {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #141414;
+  font: 600 0.7rem var(--display);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.swatches .chip:hover .chip-copy,
+.swatches .chip:focus-visible .chip-copy,
+.swatches .chip.copied .chip-copy {
+  opacity: 1;
+  transform: none;
+}
+.swatches .chip.copied .chip-copy {
+  background: #141414;
+  color: #fff;
+}
+/* image-based components (Elderly care): lift on hover, click enlarges */
+.kit-tile {
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.kit-card:hover .kit-tile {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 0 0 1.5px var(--line),
+    0 12px 24px rgba(var(--shade), 0.16);
+}
+@media (prefers-reduced-motion: reduce) {
+  .kit-btn,
+  .kit-icon,
+  .kit-arrow,
+  .swatches .chip,
+  .kit-tile {
+    transition: none;
+  }
+  .kit-icon:hover .kit-dl-arrow {
+    animation: none;
+  }
+}

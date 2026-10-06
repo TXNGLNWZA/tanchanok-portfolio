@@ -1,3 +1,4 @@
+import { useState } from "react";
 /* Shared building blocks for the "User flow / Design process" and "Design system"
    sections of case studies. Content lives in each case study. */
 import { Img } from "./Img.jsx";
@@ -83,21 +84,41 @@ export function Annotated({ img, alt, callouts, width = 300 }) {
 
 /* colors: [name, hex, use, textColorOnSwatch][] */
 export function Swatches({ colors }) {
+  const [copied, setCopied] = useState(null);
+  const copy = async (hex) => {
+    try {
+      await navigator.clipboard.writeText(hex);
+    } catch {
+      /* clipboard blocked: still show the feedback */
+    }
+    setCopied(hex);
+    setTimeout(() => setCopied((c) => (c === hex ? null : c)), 1400);
+  };
   return (
     <>
       <h3 className="sg-h">Color</h3>
       <ul className="swatches">
         {colors.map(([name, hex, use, on]) => (
           <li key={hex}>
-            <div className="chip" style={{ background: hex, color: on }}>
-              Aa
-            </div>
+            <button
+              type="button"
+              className={`chip${copied === hex ? " copied" : ""}`}
+              style={{ background: hex, color: on }}
+              onClick={() => copy(hex)}
+              aria-label={`Copy ${name} ${hex}`}
+            >
+              <span>Aa</span>
+              <span className="chip-copy" aria-hidden="true">
+                {copied === hex ? "Copied!" : "Copy"}
+              </span>
+            </button>
             <b>{name}</b>
             <code>{hex}</code>
             <span>{use}</span>
           </li>
         ))}
       </ul>
+      <p className="kit-hint">Click a color to copy its hex code.</p>
     </>
   );
 }

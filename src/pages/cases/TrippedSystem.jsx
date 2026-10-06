@@ -1,3 +1,4 @@
+import { useState } from "react";
 /* TRIPPED user flow and style guide.
    The flow follows the TRIPPED React build; colors and type come from
    the Figma designs and that build. */
@@ -42,40 +43,81 @@ export function StyleGuide() {
 
       <Kit label="TRIPPED UI components">
         <figure>
-          <div className="kit-input">
+          <label className="kit-input">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
               <path d="M20 20l-4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
-            Where to go ?
-          </div>
+            <input type="text" placeholder="Where to go ?" aria-label="Sample search field" />
+          </label>
           <figcaption>Search field · 2px blue border</figcaption>
         </figure>
         <figure>
-          <span className="kit-btn">Search</span>
+          <button type="button" className="kit-btn">Search</button>
           <figcaption>Primary · 6px radius</figcaption>
         </figure>
         <figure>
-          <span className="kit-btn pill">Explore More</span>
+          <button type="button" className="kit-btn pill">Explore More</button>
           <figcaption>Pill button</figcaption>
         </figure>
         <figure>
-          <span className="kit-btn pill lime">See all journeys →</span>
+          <button type="button" className="kit-btn pill lime">
+            See all journeys <span className="kit-arrow" aria-hidden="true">→</span>
+          </button>
           <figcaption>Accent pill</figcaption>
         </figure>
         <figure>
-          <span className="kit-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-              <path d="M12 4v11m-5-5l5 5 5-5M5 20h14" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </span>
+          <DownloadButton />
           <figcaption>Download · round icon</figcaption>
         </figure>
         <figure>
-          <span className="kit-tag">Nature | Culture | Society</span>
+          <ThemeTags />
           <figcaption>Theme label</figcaption>
         </figure>
       </Kit>
+      <p className="kit-hint">These are live: hover, click and type to try them.</p>
     </>
+  );
+}
+
+/* Download icon: the arrow drops into the tray, then a check confirms, like the app's
+   download success state. */
+function DownloadButton() {
+  const [state, setState] = useState("idle");
+  const click = () => {
+    if (state !== "idle") return;
+    setState("busy");
+    setTimeout(() => setState("done"), 650);
+    setTimeout(() => setState("idle"), 2200);
+  };
+  return (
+    <button type="button" className={`kit-icon ${state}`} onClick={click} aria-label={state === "done" ? "Downloaded" : "Download"}>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <g className="kit-dl-arrow">
+          <path d="M12 4v11m-5-5l5 5 5-5" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        </g>
+        <path className="kit-dl-tray" d="M5 20h14" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" />
+        <path className="kit-dl-check" d="M6 12.5l4 4 8-9" stroke="#ccf32f" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </button>
+  );
+}
+
+/* Theme label: each theme switches on and off, like choosing what a trip is about. */
+function ThemeTags() {
+  const all = ["Nature", "Culture", "Society"];
+  const [on, setOn] = useState(all);
+  const toggle = (t) => setOn((v) => (v.includes(t) ? v.filter((x) => x !== t) : [...v, t]));
+  return (
+    <span className="kit-tag" role="group" aria-label="Trip themes">
+      {all.map((t, i) => (
+        <span key={t}>
+          {i > 0 && <span className="kit-sep"> | </span>}
+          <button type="button" className={on.includes(t) ? "on" : undefined} aria-pressed={on.includes(t)} onClick={() => toggle(t)}>
+            {t}
+          </button>
+        </span>
+      ))}
+    </span>
   );
 }
