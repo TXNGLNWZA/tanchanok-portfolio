@@ -52,7 +52,7 @@ export default function Inits({ project }) {
           </p>
         </div>
         <figure className="mt">
-          <Img name="inits-workshop-poster" alt="Workshop poster for How to Train Your AI" zoom style={{ borderRadius: "14px" }} />
+          <Img name="inits-workshop-poster" alt="Workshop poster for How to Train Your AI" zoom style={{ width: "100%", borderRadius: "14px" }} />
         </figure>
         <div className="lanyards mt">
           {TAGS.map((t) => (

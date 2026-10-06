@@ -105,7 +105,7 @@ const IMG_SIZES = {
   "art-staff-costumes": [800, 800],
   "art-stage": [1000, 562],
   "art-staff-night": [900, 675],
-  "inits-workshop-poster": [1000, 525],
+  "inits-workshop-poster": [1200, 630],
   "inits-nametag-dark": [341, 500],
   "inits-nametag-light": [341, 500],
   "inits-workshop-group": [1300, 866],
