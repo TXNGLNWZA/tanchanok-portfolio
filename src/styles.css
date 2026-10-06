@@ -3041,12 +3041,28 @@ html.theme-fade *::after {
   max-height: 100%;
   object-fit: contain;
 }
-.logo-extra {
+/* Museum Diary: the elephant it started from, pointing up at the people in the mark */
+.logo-origin {
   position: absolute;
-  left: 7%;
-  top: 7%;
-  width: 18%;
-  opacity: 0.9;
+  left: 9%;
+  bottom: 7%;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.15rem;
+  color: #0d2340;
+}
+.logo-origin img {
+  width: clamp(44px, 4.6vw, 62px);
+  height: auto;
+}
+.logo-origin svg {
+  margin: 0 0 1.4rem -0.1rem;
+}
+.logo-origin .hand {
+  margin: 0 0 0.2rem 0.2rem;
+  color: #0d2340;
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  white-space: nowrap;
 }
 .logo-card figcaption {
   margin-top: 0.9rem;

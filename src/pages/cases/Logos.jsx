@@ -61,8 +61,17 @@ export default function Logos({ project }) {
           {LOGOS.map((l) => (
             <figure key={l.name} className="logo-card">
               <div className={`logo-plate ${l.tone}`}>
-                {l.extra && <Img name={l.extra} alt="" className="logo-extra" sizes="80px" />}
                 <Img name={l.img} alt={l.alt} zoom className="logo-mark" sizes="(max-width: 860px) 80vw, 320px" />
+                {l.extra && (
+                  <span className="logo-origin" aria-hidden="true">
+                    <Img name={l.extra} alt="" sizes="60px" />
+                    <svg width="26" height="40" viewBox="0 0 26 40" fill="none">
+                      <path d="M6 38C4 26 8 14 18 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      <path d="M11 5l7-1 0 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="hand">it started as an elephant</span>
+                  </span>
+                )}
               </div>
               <figcaption>
                 <b>{l.name}</b>
