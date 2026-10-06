@@ -93,7 +93,8 @@ Derived from her original portfolio design (a long collage-style Figma/Canva pag
     accents, slate `#86A1B5`. Hero: moonglow and fireflies that gather at the pointer.
   - **Day** (`light`): a misty pine forest. Sage-gray mist `#dfe6e0` background, deep pine
     `#1d3a2e` ink, pine `#24473a` blocks, sage `#7d978a` bars, sage tint bands. Hero: sunbeams,
-    drifting mist, blurred foliage in the top corners, and dewdrops (`DewField.jsx`) that twinkle
+    drifting mist, blurred foliage in the top corners that sways
+    with each leaf fluttering, a few leaves falling through the mist, and dewdrops (`DewField.jsx`) that twinkle
     silver-white and flash brighter where the pointer (the sunbeam) passes.
   - Both atmospheres live in `HeroSky.jsx`, home hero only, and stop under reduced motion.
 - **Type:** Poppins for everything; Gochi Hand for short handwritten notes only

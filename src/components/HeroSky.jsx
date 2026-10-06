@@ -27,15 +27,33 @@ export function HeroSky() {
         <span className="mist m3" />
         <Foliage className="leaves leaves-l" />
         <Foliage className="leaves leaves-r" />
+        {FALLING.map((f, i) => (
+          <span key={i} className="falling" style={f}>
+            <svg viewBox="-4 -40 96 48" fill="currentColor">
+              <path d={LEAF} />
+            </svg>
+          </span>
+        ))}
       </div>
       <DewField key="day" />
     </>
   );
 }
 
-/* A cluster of pine-dark leaves for the top corners, softly blurred like it is in the mist. */
+const LEAF = "M0 0C18-26 54-34 86-22C62-2 30 10 0 0Z";
+
+/* A few leaves drifting down through the mist: start position, size, timing. */
+const FALLING = [
+  { "--x": "6%", "--w": "34px", "--t": "17s", "--d": "-3s", "--drift": "90px" },
+  { "--x": "52%", "--w": "28px", "--t": "22s", "--d": "-12s", "--drift": "-80px" },
+  { "--x": "92%", "--w": "32px", "--t": "19s", "--d": "-7s", "--drift": "-70px" },
+  { "--x": "34%", "--w": "24px", "--t": "25s", "--d": "-18s", "--drift": "60px" },
+];
+
+/* A cluster of pine-dark leaves for the top corners, softly blurred like it is in the mist.
+   The whole branch sways from its corner; each leaf also flutters on its own. */
 function Foliage({ className }) {
-  const leaf = "M0 0C18-26 54-34 86-22C62-2 30 10 0 0Z";
+  const leaf = LEAF;
   const parts = [
     [0, 40, -18, 1.25, 0.95],
     [18, 92, 8, 1.05, 0.85],
@@ -48,7 +66,9 @@ function Foliage({ className }) {
     <svg className={className} viewBox="0 0 220 240" fill="none">
       <path d="M-10 -10C30 40 40 120 20 250" stroke="currentColor" strokeWidth="5" opacity=".55" />
       {parts.map(([x, y, rot, sc, op], i) => (
-        <path key={i} d={leaf} fill="currentColor" opacity={op} transform={`translate(${x} ${y}) rotate(${rot}) scale(${sc})`} />
+        <g key={i} transform={`translate(${x} ${y}) rotate(${rot}) scale(${sc})`}>
+          <path className="leaf" d={leaf} fill="currentColor" opacity={op} style={{ "--fd": `${-i * 0.7}s`, "--ft": `${2.6 + (i % 3) * 0.6}s` }} />
+        </g>
       ))}
     </svg>
   );

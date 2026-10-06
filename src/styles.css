@@ -2686,10 +2686,10 @@ html.theme-fade *::after {
   animation: mist-drift 70s ease-in-out -35s infinite alternate;
 }
 .motion .leaves-l {
-  animation: leaves-l 9s ease-in-out infinite alternate;
+  animation: leaves-l 7s ease-in-out infinite alternate;
 }
 .motion .leaves-r {
-  animation: leaves-r 11s ease-in-out infinite alternate;
+  animation: leaves-r 8.5s ease-in-out -2s infinite alternate;
 }
 @keyframes rays-sway {
   from {
@@ -2706,14 +2706,107 @@ html.theme-fade *::after {
     transform: translateX(18%);
   }
 }
+/* the branch sways from its corner like wind moving through the trees */
+.leaves-l {
+  transform-origin: 0 0;
+}
+.leaves-r {
+  /* flipped with scaleX(-1), so pivot on the top center to keep it in its corner */
+  transform-origin: 50% 0;
+}
 @keyframes leaves-l {
-  to {
-    transform: rotate(3deg) translateY(4px);
+  0% {
+    transform: rotate(-4deg);
+  }
+  35% {
+    transform: rotate(5deg) translateY(6px);
+  }
+  70% {
+    transform: rotate(-1deg) translateY(2px);
+  }
+  100% {
+    transform: rotate(6deg) translateY(8px);
   }
 }
 @keyframes leaves-r {
+  0% {
+    transform: scaleX(-1) rotate(-3deg);
+  }
+  40% {
+    transform: scaleX(-1) rotate(6deg) translateY(6px);
+  }
+  75% {
+    transform: scaleX(-1) rotate(0deg) translateY(2px);
+  }
+  100% {
+    transform: scaleX(-1) rotate(5deg) translateY(7px);
+  }
+}
+/* each leaf flutters on its stem */
+.leaves .leaf {
+  transform-box: fill-box;
+  transform-origin: 0% 60%;
+}
+.motion .leaves .leaf {
+  animation: leaf-flutter var(--ft) ease-in-out var(--fd) infinite alternate;
+}
+@keyframes leaf-flutter {
+  from {
+    transform: rotate(-7deg);
+  }
   to {
-    transform: scaleX(-1) rotate(3deg) translateY(4px);
+    transform: rotate(8deg) scaleY(0.92);
+  }
+}
+/* leaves drifting down through the mist */
+.falling {
+  position: absolute;
+  left: var(--x);
+  top: -40px;
+  width: var(--w);
+  color: #2e5546;
+  opacity: 0;
+  filter: blur(0.4px);
+}
+.falling svg {
+  display: block;
+  width: 100%;
+}
+.motion .falling {
+  animation: leaf-fall var(--t) linear var(--d) infinite;
+}
+.motion .falling svg {
+  animation: leaf-spin 3.2s ease-in-out infinite alternate;
+}
+@keyframes leaf-fall {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  10% {
+    opacity: 0.6;
+  }
+  30% {
+    transform: translate(calc(var(--drift) * 0.6), 30vh);
+  }
+  55% {
+    transform: translate(calc(var(--drift) * -0.2), 55vh);
+  }
+  80% {
+    opacity: 0.55;
+    transform: translate(var(--drift), 80vh);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--drift) * 0.4), 105vh);
+  }
+}
+@keyframes leaf-spin {
+  from {
+    transform: rotate(-35deg) scaleX(1);
+  }
+  to {
+    transform: rotate(40deg) scaleX(0.55);
   }
 }
 
