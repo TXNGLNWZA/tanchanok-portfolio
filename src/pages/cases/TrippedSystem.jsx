@@ -72,7 +72,7 @@ export function StyleGuide() {
         </figure>
         <figure>
           <ThemeTags />
-          <figcaption>Theme label</figcaption>
+          <figcaption>Theme label · tap a theme</figcaption>
         </figure>
       </Kit>
       <p className="kit-hint">These are live: hover, click and type to try them.</p>
@@ -107,13 +107,18 @@ function DownloadButton() {
 function ThemeTags() {
   const all = ["Nature", "Culture", "Society"];
   const [on, setOn] = useState(all);
-  const toggle = (t) => setOn((v) => (v.includes(t) ? v.filter((x) => x !== t) : [...v, t]));
+  const [popped, setPopped] = useState(null);
+  const toggle = (t) => {
+    setOn((v) => (v.includes(t) ? v.filter((x) => x !== t) : [...v, t]));
+    setPopped(t);
+    setTimeout(() => setPopped(null), 320);
+  };
   return (
     <span className="kit-tag" role="group" aria-label="Trip themes">
       {all.map((t, i) => (
         <span key={t}>
           {i > 0 && <span className="kit-sep"> | </span>}
-          <button type="button" className={on.includes(t) ? "on" : undefined} aria-pressed={on.includes(t)} onClick={() => toggle(t)}>
+          <button type="button" className={[on.includes(t) && "on", popped === t && "pop"].filter(Boolean).join(" ") || undefined} aria-pressed={on.includes(t)} onClick={() => toggle(t)}>
             {t}
           </button>
         </span>

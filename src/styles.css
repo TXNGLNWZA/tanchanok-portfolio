@@ -3395,26 +3395,42 @@ dialog.lb {
   }
 }
 .kit-tag button {
-  padding: 0.1rem 0.2rem;
+  position: relative;
+  padding: 0.15rem 0.35rem;
   border: 0;
-  border-radius: 4px;
+  border-radius: 6px;
   background: transparent;
-  color: #b5b9dd;
+  color: #9ea3cf;
   font: inherit;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
   cursor: pointer;
   transition:
     color 0.2s,
     background 0.2s,
     transform 0.15s;
 }
+/* on: solid blue with a lime underline, the same accent as the app */
 .kit-tag button.on {
   color: #071386;
+  text-decoration: underline;
+  text-decoration-color: #ccf32f;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 5px;
 }
 .kit-tag button:hover {
   background: #d3d6ee;
 }
 .kit-tag button:active {
-  transform: scale(0.94);
+  transform: scale(0.92);
+}
+.kit-tag button.pop {
+  animation: tag-pop 0.3s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+@keyframes tag-pop {
+  50% {
+    transform: scale(1.15);
+  }
 }
 .kit-sep {
   color: #071386;
