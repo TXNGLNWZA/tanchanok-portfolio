@@ -3247,3 +3247,18 @@ dialog.lb img {
     bottom: calc(env(safe-area-inset-bottom, 0px) + 1.1rem);
   }
 }
+
+/* lightbox: no scrolling behind it, and the image cannot be selected or dragged
+   (Chrome tints a selected image's whole box, which looked like a gray frame) */
+html.lb-open,
+html.lb-open body {
+  overflow: hidden;
+}
+dialog.lb img {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+dialog.lb {
+  overscroll-behavior: contain;
+}

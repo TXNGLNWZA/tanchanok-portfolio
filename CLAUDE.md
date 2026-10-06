@@ -65,7 +65,8 @@ no server rewrites are needed.
 - **Images:** always use `<Img name alt className zoom style>`. `name` must exist in `IMG_SIZES`
   in `data.js` with its pixel width/height. `zoom` opens the lightbox on click.
   Pass `gallery` ({ name, alt, label }[]) and `index` to page through a set in the lightbox
-  (previous / next buttons, counter, arrow keys, wraps around); used for the TRIPPED guide pages.
+  (previous / next buttons hidden at the ends, counter, arrow keys, no wraparound); used for the
+  TRIPPED guide pages. The page behind is scroll-locked while the lightbox is open.
 - **Hero:** `Hero` in `Home.jsx` (`.h2-*` styles) fills the first screen (`min-height: 100svh`
   minus the header; compact rules for short screens) so the work section starts after a scroll.
   Name with the eyes, lead, CTAs, the cut-out bulb on a navy block (no single
