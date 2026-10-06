@@ -26,8 +26,9 @@ const HOME_ANCHORS = ["work", "process", "about", "contact", "experience"];
    Hash-based: #/ home, #/work|about|contact|experience scroll on home,
    #/work/<slug> renders a case study. */
 const readPath = () => location.hash.replace(/^#\/?/, "");
-function useHashPath() {
-  const [path, setPath] = useState(readPath);
+function useHashPath(initial) {
+  // initial is used when prerendering at build time, where there is no location
+  const [path, setPath] = useState(() => (typeof location === "undefined" ? initial : readPath()));
   useEffect(() => {
     const on = () => setPath(readPath());
     addEventListener("hashchange", on);
@@ -62,8 +63,8 @@ function Header() {
   );
 }
 
-export default function App() {
-  const path = useHashPath();
+export default function App({ initialPath = "" }) {
+  const path = useHashPath(initialPath);
   const main = useRef(null);
   const wasHome = useRef(false);
   // the case study last opened, so coming back lands on its card instead of the top of Work

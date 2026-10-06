@@ -43,8 +43,8 @@ function Hero() {
           <div className="h2-intro">
             <Img name="me" alt="Tanchanok Juntongkaew" className="h2-me" sizes="72px" />
             <p className="h2-lead">
-              <b>UX/UI Designer</b> With a background in Computer Science, I turn complex problems into
-              simple, intuitive experiences.
+              <b>UX/UI Designer</b> With a background in Computer Science, I design with technical
+              constraints in mind and speak the same language as developers.
             </p>
           </div>
           <div className="btns">

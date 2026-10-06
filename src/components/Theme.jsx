@@ -5,7 +5,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
    before first paint from the saved choice or the system setting, so there is no flash. */
 const KEY = "theme";
 const ThemeContext = createContext({ theme: "dark", setTheme: () => {} });
-const read = () => document.documentElement.dataset.theme || "dark";
+const read = () => (typeof document === "undefined" ? "dark" : document.documentElement.dataset.theme || "dark");
 
 export function ThemeProvider({ children }) {
   const [theme, set] = useState(read);

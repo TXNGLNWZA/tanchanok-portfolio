@@ -2891,3 +2891,7 @@ html.theme-fade *::after {
     gap: 0.45rem;
   }
 }
+/* fireflies get their position from JS; keep them hidden until then (prerendered HTML) */
+.firefly-field span:not([style]) {
+  display: none;
+}

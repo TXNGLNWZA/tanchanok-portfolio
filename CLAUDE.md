@@ -1,6 +1,8 @@
 # Tanchanok Juntongkaew — Portfolio
 
-Personal portfolio for Tanchanok Juntongkaew, a UX/UI designer. Never use the tagline
+Personal portfolio for Tanchanok Juntongkaew, a UX/UI designer. Hero tagline: her CS background
+means she designs with technical constraints in mind and speaks the same language as developers
+(chosen over the generic "turn complex problems into simple, intuitive experiences"). Never use the tagline
 "designer who builds with React" (she rejected it as unprofessional); describe her plainly as a
 UX/UI designer.
 Audience: recruiters and hiring managers for UX/UI design roles (she is not looking for frontend roles). They skim, so the
@@ -38,6 +40,14 @@ facts strip and buttons). The pre-commit hook in `.githooks/` reruns it whenever
 .githooks`). `vite.config.js` appends an md5 fingerprint (`%OG_VERSION%`) to the og:image URL so
 LinkedIn, Line and Facebook fetch a changed image instead of their cached copy. Open Graph URLs
 must be absolute and match the live address; update them if the domain changes.
+`npm run build` also prerenders (`scripts/prerender.mjs`, using `src/entry-server.jsx` and
+`renderToString`): the home page HTML goes into `dist/index.html` and each case study gets a static
+`dist/work/<slug>/index.html` (canonical URL, own title and description, relative paths rewritten
+to `../../`, and a script that sends browsers on to `/#/work/<slug>`), plus `sitemap.xml` and
+`robots.txt`. This is so crawlers, link-preview bots and AI summarizers that do not run JavaScript
+see the content. The browser app still mounts with `createRoot` and replaces the prerendered
+markup (no hydration), so render code must not read `window`/`document`/`location` outside effects
+(`App` takes `initialPath`; `Theme` reads `document` only when it exists).
 Deploy `dist/` to GitHub Pages, Netlify or Vercel (build command `npm run build`, output `dist`).
 `base: "./"` in `vite.config.js` makes it work at a domain root or a sub-path. Hash routing means
 no server rewrites are needed.
