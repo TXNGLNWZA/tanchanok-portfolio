@@ -193,6 +193,11 @@ Derived from her original portfolio design (a long collage-style Figma/Canva pag
 - Elderly care design system: font Khwan Thong confirmed by Tanchanok. It is not a web font,
   so type specimens and components are crops of the 1920px login screenshot. Colors were sampled
   from the screens.
+- DOK-MAI design system: colors were sampled from the screens; the fonts were not identified
+  (type specimens are crops), so the rows are named by role (Headline, Name and line, List).
+  The demo, annotated garden, type and component crops all come from the two DOK-MAI images in
+  the portfolio PDF (screens ~270px wide). Design choices cards are Claude's reading of the
+  screens; confirm with Tanchanok.
 - The DTI competition logo image contains the typo "Innovtion" (in the artwork itself).
 - Experience items without case studies (TU room booking system, True Corporation internship,
   therapy card game) could become case studies if she has visuals.

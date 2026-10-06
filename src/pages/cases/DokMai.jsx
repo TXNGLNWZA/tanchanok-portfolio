@@ -1,6 +1,6 @@
 import { CaseStudy, Sec } from "../../components/CaseStudy.jsx";
 import { Img } from "../../components/Img.jsx";
-import { Process, Annotated } from "../../components/DesignSystem.jsx";
+import { Process, Annotated, Swatches, TypeSpecimens, KitGroups } from "../../components/DesignSystem.jsx";
 import { Walkthrough } from "../../components/Walkthrough.jsx";
 import { InfoCards } from "../../components/Story.jsx";
 
@@ -75,6 +75,55 @@ const CHOICES = [
   },
 ];
 
+const COLORS = [
+  ["Paper", "#FAF3E5", "Every background, like a sketchbook page", "#17130C"],
+  ["Ink", "#17130C", "Text and the pencil lines of the interface", "#fff"],
+  ["Bark", "#37261E", "The main button", "#fff"],
+  ["Marigold", "#F9D215", "Yellow flowers and the logo", "#17130C"],
+  ["Leaf", "#0C780C", "Stems and leaves", "#fff"],
+  ["Grass", "#7CB175", "Crayon grass under the search box and the garden", "#17130C"],
+  ["Petal", "#DEA2A1", "Pink flowers and the Share butterfly", "#17130C"],
+  ["Butterfly", "#7DADC8", "The Visit butterfly", "#17130C"],
+  ["Lilac", "#D8A2D9", "The music note on each song", "#17130C"],
+];
+
+const TYPE = [
+  { font: "Headline", use: "Questions at the top of each screen", img: "dokmai-type-title", alt: "Which component you picking? in the headline font" },
+  { font: "Name and line", use: "Flower names and their short lines", img: "dokmai-type-name", alt: "Marigold, The stars have aligned in your favor" },
+  { font: "List", use: "Song titles and artists", img: "dokmai-type-list", alt: "Robber, The 1975 in the list font" },
+];
+
+const KIT = [
+  {
+    title: "Find a song",
+    items: [
+      { img: "dokmai-ui-search", alt: "Hand-drawn search box with crayon grass", name: "Search box", note: "Pencil outline, grass along the bottom." },
+      { img: "dokmai-ui-song", alt: "Song row with album cover, title, artist and a music note", name: "Song row", note: "Cover, title, artist, music note." },
+    ],
+  },
+  {
+    title: "Pick a flower",
+    items: [
+      { img: "dokmai-ui-arrows", alt: "Marigold between two arrows for browsing flowers", name: "Flower picker", note: "Arrows browse the hand-drawn flowers." },
+      { img: "dokmai-ui-pick", alt: "Dark brown Pick button", name: "Main button", note: "The one solid shape on the screen." },
+    ],
+  },
+  {
+    title: "Your garden",
+    items: [
+      { img: "dokmai-ui-grid", alt: "Garden grid with planted flowers and grass", name: "Garden grid", note: "One flower per planted song." },
+      { img: "dokmai-ui-player", alt: "Music player with song title, timeline and controls", name: "Music player", note: "Title, timeline, play controls." },
+    ],
+  },
+  {
+    title: "Share and visit",
+    items: [
+      { img: "dokmai-ui-butterflies", alt: "Blue Visit butterfly and pink Share butterfly", name: "Butterfly buttons", note: "Visit and Share." },
+      { img: "dokmai-ui-farm", alt: "Card for a friend's farm with a short description", name: "Garden card", note: "A friend's garden, with when it was last updated." },
+    ],
+  },
+];
+
 export default function DokMai({ project }) {
   return (
     <CaseStudy
@@ -134,6 +183,20 @@ export default function DokMai({ project }) {
           <p>Three decisions keep the whole app feeling like one hand-made garden.</p>
         </div>
         <InfoCards items={CHOICES} label="Design choices" />
+      </Sec>
+
+      <Sec title="Design system">
+        <div className="cs-text">
+          <p>
+            A small, warm system: sketchbook paper, pencil-line components and the colors of the crayon
+            flowers, so the screens and the illustrations feel like one drawing.
+          </p>
+        </div>
+        <div className="dok-ds">
+          <Swatches colors={COLORS} />
+          <TypeSpecimens rows={TYPE} />
+          <KitGroups groups={KIT} label="DOK-MAI UI components" />
+        </div>
       </Sec>
 
       <Sec title="Drawn by hand">
