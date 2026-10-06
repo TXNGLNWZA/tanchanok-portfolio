@@ -2,7 +2,7 @@ import { bySlug as p, EMAIL, LINKEDIN } from "../data.js";
 import { Img } from "../components/Img.jsx";
 import { Star } from "../components/Doodles.jsx";
 import { Eyes } from "../components/Eyes.jsx";
-import { FireflyField } from "../components/FireflyField.jsx";
+import { HeroSky } from "../components/HeroSky.jsx";
 import { Process } from "../components/DesignSystem.jsx";
 
 const PROCESS = [
@@ -28,7 +28,7 @@ function Meta({ slug }) {
 function Hero() {
   return (
     <div className="h2-outer">
-      <FireflyField />
+      <HeroSky />
       <div className="wrap h2">
         <div className="h2-text">
           <div className="h2-namebox">

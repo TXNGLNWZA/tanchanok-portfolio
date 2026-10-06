@@ -1,19 +1,23 @@
 :root {
-  --bg: #f5f5f5;
-  --surface: #ffffff;
-  --ink: #0d3b66;
-  --body: #34506b;
-  --muted: #62798e;
-  --line: #cbd6df;
-  --slate: #86a1b5;
+  /* Day (light): a misty pine forest. Sage-gray mist behind deep pine ink. */
+  --bg: #dfe6e0;
+  --surface: #f3f6f2;
+  --ink: #1d3a2e;
+  --body: #3b5348;
+  --muted: #627569;
+  --line: #bfcdc4;
+  --slate: #7d978a;
   --sun: #f5d93b;
   --lime: #bcc54a;
-  --block: #0d3b66;
-  --on-block: #f5f5f5;
-  --tint-blue: #e2eaf1;
-  --tint-cream: #f3eddd;
-  --tint-sun: #fbf3c4;
-  --glint: #f5f5f5;
+  --block: #24473a;
+  --on-block: #eef3ee;
+  --tint-blue: #ccdad1;
+  --tint-cream: #e9e7d9;
+  --tint-sun: #eef0cf;
+  --glint: #f3f6f2;
+  --shade: 29, 58, 46;
+  --toggle-vein: #cfe0d4;
+  --on-sun: #1d3a2e;
   --display: "Poppins", "Prompt", system-ui, -apple-system, "Segoe UI", sans-serif;
   --hand: "Gochi Hand", "Comic Sans MS", "Chalkboard SE", cursive;
   --wrap: 1180px;
@@ -35,6 +39,9 @@
     --tint-cream: #28281f;
     --tint-sun: #2e2a12;
     --glint: #0c1b2b;
+    --shade: 13, 59, 102;
+    --toggle-vein: #132639;
+    --on-sun: #0d3b66;
     color-scheme: dark;
   }
 }
@@ -52,6 +59,9 @@
   --tint-cream: #28281f;
   --tint-sun: #2e2a12;
   --glint: #0c1b2b;
+  --shade: 13, 59, 102;
+  --toggle-vein: #132639;
+  --on-sun: #0d3b66;
   color-scheme: dark;
 }
 :root {
@@ -220,7 +230,7 @@ p {
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--sun);
-  color: #0d3b66;
+  color: var(--on-sun);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,7 +239,7 @@ p {
   font-size: clamp(0.95rem, 1.3vw, 1.15rem);
   line-height: 1.05;
   transform: rotate(-10deg);
-  box-shadow: 0 6px 14px rgba(13, 59, 102, 0.2);
+  box-shadow: 0 6px 14px rgba(var(--shade), 0.2);
 }
 .btns {
   display: flex;
@@ -537,7 +547,7 @@ section {
 }
 .contact .btn.primary {
   background: var(--sun);
-  color: #0d3b66;
+  color: var(--on-sun);
   border-color: var(--sun);
 }
 .contact .btn.ghost {
@@ -988,7 +998,7 @@ main {
   display: grid;
   place-items: center;
   background: var(--sun);
-  color: #0d3b66;
+  color: var(--on-sun);
   font-weight: 700;
 }
 .flow h3 {
@@ -1086,7 +1096,7 @@ main {
   border-radius: 6px;
   box-shadow:
     0 0 0 1px var(--line),
-    0 8px 18px rgba(13, 59, 102, 0.14);
+    0 8px 18px rgba(var(--shade), 0.14);
 }
 .guide-pages span {
   display: block;
@@ -1309,7 +1319,7 @@ main {
   display: grid;
   place-items: center;
   background: var(--sun);
-  color: #0d3b66;
+  color: var(--on-sun);
   font-weight: 700;
   font-size: 0.85rem;
   box-shadow: 0 0 0 6px var(--bg);
@@ -1495,7 +1505,7 @@ main {
   overflow: visible;
 }
 .annot-img img {
-  filter: drop-shadow(0 18px 30px rgba(13, 59, 102, 0.22));
+  filter: drop-shadow(0 18px 30px rgba(var(--shade), 0.22));
 }
 .annot-dot {
   position: absolute;
@@ -1507,7 +1517,7 @@ main {
   display: grid;
   place-items: center;
   background: var(--sun);
-  color: #0d3b66;
+  color: var(--on-sun);
   font-size: 0.72rem;
   font-weight: 700;
   box-shadow: 0 0 0 4px rgba(245, 217, 59, 0.35);
@@ -1542,7 +1552,7 @@ main {
   font-size: 0.85rem;
   font-weight: 500;
   line-height: 1.25;
-  box-shadow: 0 6px 16px rgba(13, 59, 102, 0.12);
+  box-shadow: 0 6px 16px rgba(var(--shade), 0.12);
 }
 .annot-pill b {
   flex: none;
@@ -1632,7 +1642,7 @@ main {
   position: relative;
   width: 100%;
   background: #fff;
-  box-shadow: 0 18px 40px rgba(13, 59, 102, 0.22);
+  box-shadow: 0 18px 40px rgba(var(--shade), 0.22);
 }
 .wt-device.phone {
   width: min(250px, 62vw);
@@ -1671,7 +1681,7 @@ main {
   border: 3px solid var(--sun);
   border-radius: 10px;
   background: rgba(245, 217, 59, 0.18);
-  box-shadow: 0 0 0 4px rgba(13, 59, 102, 0.35);
+  box-shadow: 0 0 0 4px rgba(var(--shade), 0.35);
   cursor: pointer;
 }
 .wt-hot:hover {
@@ -1719,7 +1729,7 @@ main {
   gap: 0.6rem;
   padding: 1.2rem;
   text-align: center;
-  color: #0d3b66;
+  color: var(--on-sun);
 }
 .wt-done b {
   padding: 0.3rem 1rem;
@@ -1772,7 +1782,7 @@ main {
 }
 .wt-steps .on button {
   background: var(--surface);
-  box-shadow: 0 6px 16px rgba(13, 59, 102, 0.1);
+  box-shadow: 0 6px 16px rgba(var(--shade), 0.1);
 }
 .wt-n {
   flex: none;
@@ -1788,7 +1798,7 @@ main {
 .wt-steps .on .wt-n {
   background: var(--sun);
   border-color: var(--sun);
-  color: #0d3b66;
+  color: var(--on-sun);
 }
 .wt-steps .past .wt-n {
   background: var(--ink);
@@ -1875,7 +1885,7 @@ main {
   height: 2.2rem;
   border-radius: 50%;
   background: var(--sun);
-  color: #0d3b66;
+  color: var(--on-sun);
   font-size: 0.8rem;
   font-weight: 700;
 }
@@ -2087,7 +2097,7 @@ main {
   top: 0;
   width: 40%;
   transform: rotate(-8deg);
-  filter: drop-shadow(0 10px 16px rgba(13, 59, 102, 0.25));
+  filter: drop-shadow(0 10px 16px rgba(var(--shade), 0.25));
   transition: transform 0.4s ease;
 }
 .h2-shot {
@@ -2105,7 +2115,7 @@ main {
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
   background: var(--sun);
-  color: #0d3b66;
+  color: var(--on-sun);
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   transform: rotate(6deg);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
@@ -2123,7 +2133,7 @@ main {
   color: var(--ink);
   font-weight: 600;
   font-size: 0.95rem;
-  box-shadow: 0 10px 24px rgba(13, 59, 102, 0.16);
+  box-shadow: 0 10px 24px rgba(var(--shade), 0.16);
 }
 .h2-caption small {
   display: block;
@@ -2446,7 +2456,7 @@ a.card:focus:not(:focus-visible) {
   height: 72px;
   border-radius: 50%;
   border: 3px solid var(--sun);
-  box-shadow: 0 6px 16px rgba(13, 59, 102, 0.2);
+  box-shadow: 0 6px 16px rgba(var(--shade), 0.2);
 }
 @media (min-width: 861px) and (max-height: 860px) {
   .h2-intro {
@@ -2474,7 +2484,7 @@ a.card:focus:not(:focus-visible) {
     margin-left: auto;
     margin-top: -0.6rem;
     transform: rotate(-10deg);
-    filter: drop-shadow(0 6px 10px rgba(13, 59, 102, 0.25));
+    filter: drop-shadow(0 6px 10px rgba(var(--shade), 0.25));
   }
   .motion .h2-bulb-mini {
     animation: bulb-mini 6s ease-in-out infinite;
@@ -2483,5 +2493,296 @@ a.card:focus:not(:focus-visible) {
     50% {
       transform: rotate(-4deg) translateY(-4px);
     }
+  }
+}
+
+/* ---------- Night / Day theme switch (Theme.jsx) ---------- */
+.nav {
+  margin-left: auto;
+}
+.theme-toggle {
+  display: inline-flex;
+  flex: none;
+  padding: 3px;
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+.theme-toggle button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: 600 0.8rem var(--display);
+  cursor: pointer;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.theme-toggle button:hover {
+  color: var(--ink);
+}
+.theme-toggle button.on {
+  background: var(--ink);
+  color: var(--bg);
+}
+.theme-toggle svg {
+  flex: none;
+}
+@media (max-width: 640px) {
+  .theme-toggle button {
+    padding: 0.35rem 0.45rem;
+  }
+  .theme-toggle span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .nav {
+    gap: 0.75rem;
+    font-size: 0.88rem;
+  }
+}
+/* phones: name, three links and the switch must share one row */
+@media (max-width: 640px) {
+  .top .wrap {
+    gap: 0.6rem;
+  }
+  .mark {
+    font-size: 0.92rem;
+  }
+}
+@media (max-width: 430px) {
+  .mark b {
+    display: none;
+  }
+  .nav {
+    gap: 0.6rem;
+    font-size: 0.84rem;
+  }
+  .theme-toggle button {
+    padding: 0.32rem 0.38rem;
+  }
+}
+/* colors glide from one theme to the other, only while switching */
+html.theme-fade,
+html.theme-fade *,
+html.theme-fade *::before,
+html.theme-fade *::after {
+  transition:
+    background-color 0.6s ease,
+    color 0.6s ease,
+    border-color 0.6s ease,
+    fill 0.6s ease,
+    stroke 0.6s ease !important;
+}
+
+/* ---------- hero atmosphere (HeroSky.jsx) ---------- */
+.sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+/* Night: a soft moonglow in the top corner */
+.moonglow {
+  position: absolute;
+  right: -10%;
+  top: -30%;
+  width: 70%;
+  height: 90%;
+  background: radial-gradient(closest-side, rgba(170, 196, 230, 0.13), transparent);
+}
+/* Day: morning light through mist in a pine forest */
+.sky-day {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 45%),
+    linear-gradient(0deg, rgba(36, 71, 58, 0.12), transparent 40%);
+}
+.rays {
+  position: absolute;
+  left: -20%;
+  top: -20%;
+  width: 90%;
+  height: 140%;
+  background: repeating-linear-gradient(
+    112deg,
+    transparent 0 70px,
+    rgba(255, 252, 228, 0.32) 70px 120px,
+    transparent 120px 210px
+  );
+  -webkit-mask-image: radial-gradient(ellipse at 20% 0%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 20% 0%, #000 0%, transparent 70%);
+  transform-origin: 20% 0%;
+}
+.mist {
+  position: absolute;
+  width: 70%;
+  height: 45%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.65), transparent);
+  filter: blur(18px);
+}
+.m1 {
+  left: -15%;
+  bottom: 4%;
+}
+.m2 {
+  right: -20%;
+  top: 30%;
+  opacity: 0.8;
+}
+.m3 {
+  left: 25%;
+  bottom: -18%;
+  width: 90%;
+  opacity: 0.7;
+}
+.leaves {
+  position: absolute;
+  top: -40px;
+  width: clamp(150px, 18vw, 260px);
+  color: #24473a;
+  opacity: 0.32;
+  filter: blur(1.2px);
+}
+.leaves-l {
+  left: -40px;
+}
+.leaves-r {
+  right: -40px;
+  transform: scaleX(-1);
+}
+.motion .rays {
+  animation: rays-sway 14s ease-in-out infinite alternate;
+}
+.motion .m1 {
+  animation: mist-drift 46s ease-in-out infinite alternate;
+}
+.motion .m2 {
+  animation: mist-drift 58s ease-in-out -20s infinite alternate-reverse;
+}
+.motion .m3 {
+  animation: mist-drift 70s ease-in-out -35s infinite alternate;
+}
+.motion .leaves-l {
+  animation: leaves-l 9s ease-in-out infinite alternate;
+}
+.motion .leaves-r {
+  animation: leaves-r 11s ease-in-out infinite alternate;
+}
+@keyframes rays-sway {
+  from {
+    opacity: 0.7;
+    transform: rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(2deg);
+  }
+}
+@keyframes mist-drift {
+  to {
+    transform: translateX(18%);
+  }
+}
+@keyframes leaves-l {
+  to {
+    transform: rotate(3deg) translateY(4px);
+  }
+}
+@keyframes leaves-r {
+  to {
+    transform: scaleX(-1) rotate(3deg) translateY(4px);
+  }
+}
+
+/* dewdrops (DewField.jsx): --b is how much sunbeam (pointer) light a drop catches, 0..1 */
+.dew-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.dew-field span {
+  --b: 0;
+  position: absolute;
+  width: var(--s);
+  height: var(--s);
+  margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
+}
+.dew-field i {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    #fff 0 22%,
+    rgba(232, 242, 245, 0.95) 38%,
+    rgba(150, 182, 192, 0.55) 68%,
+    rgba(120, 150, 160, 0.2) 100%
+  );
+  box-shadow:
+    0 0 calc(3px + 12px * var(--b)) calc(1px * var(--b)) rgba(255, 255, 255, calc(0.45 + 0.55 * var(--b))),
+    0 1px 2px rgba(29, 58, 46, 0.25);
+  transform: scale(calc(1 + 0.8 * var(--b)));
+}
+/* the four-point glint, always faint, flaring up in the sunbeam */
+.dew-field span::before,
+.dew-field span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--s) * 6);
+  height: 1.6px;
+  margin: -0.8px 0 0 calc(var(--s) * -3);
+  background: linear-gradient(90deg, transparent, #fff 50%, transparent);
+  opacity: calc(0.3 + 0.7 * var(--b));
+  transform: rotate(var(--rot)) scaleX(calc(0.35 + 1.1 * var(--b)));
+}
+.dew-field span::after {
+  transform: rotate(calc(var(--rot) + 90deg)) scaleX(calc(0.35 + 0.9 * var(--b)));
+}
+.motion .dew-field span {
+  animation: dew-twinkle var(--tw) ease-in-out var(--d) infinite alternate;
+}
+@keyframes dew-twinkle {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 640px) {
+  .leaves {
+    width: 130px;
+    opacity: 0.22;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dew-field span {
+    opacity: 0.85;
+  }
+}
+@media (max-width: 345px) {
+  .mark {
+    font-size: 0.84rem;
+  }
+  .nav {
+    gap: 0.5rem;
+    font-size: 0.78rem;
+  }
+  .top .wrap {
+    gap: 0.45rem;
   }
 }

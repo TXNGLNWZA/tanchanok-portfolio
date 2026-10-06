@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { bySlug } from "./data.js";
 import { LightboxProvider } from "./components/Lightbox.jsx";
 import { useReveal } from "./components/useReveal.js";
+import { ThemeProvider, ThemeToggle } from "./components/Theme.jsx";
 import Home from "./pages/Home.jsx";
 import ElderlyCare from "./pages/cases/ElderlyCare.jsx";
 import Tripped from "./pages/cases/Tripped.jsx";
@@ -55,6 +56,7 @@ function Header() {
           <a href="#/about">About</a>
           <a href="#/contact">Contact</a>
         </nav>
+        <ThemeToggle />
       </div>
     </header>
   );
@@ -106,6 +108,7 @@ export default function App() {
   }, [path]);
 
   return (
+    <ThemeProvider>
     <LightboxProvider>
       <a className="skip" href="#main">
         Skip to content
@@ -115,5 +118,6 @@ export default function App() {
         {Case ? <Case key={slug} project={bySlug[slug]} /> : <Home />}
       </main>
     </LightboxProvider>
+    </ThemeProvider>
   );
 }

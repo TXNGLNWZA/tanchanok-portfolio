@@ -84,10 +84,18 @@ no server rewrites are needed.
 
 Derived from her original portfolio design (a long collage-style Figma/Canva page). Keep it.
 
-- **Colors** (tokens in `:root`, dark-mode overrides below them):
-  paper `#F5F5F5` (bg), navy `#0D3B66` (ink and blocks), sun yellow `#F5D93B` (accents,
-  underlines, focus ring), slate `#86A1B5` (dividers, surname, heading bars), lime `#BCC54A`.
-  Plate tints: `--tint-blue`, `--tint-cream`, fixed `.p-sun`, `.p-paper` (white), `.p-ink` (dark).
+- **Two themes, Night and Day** (`Theme.jsx`): a labeled Night / Day switch in the header so
+  visitors see both exist; the choice is saved in `localStorage` (`theme`), otherwise the system
+  setting is used. An inline script in `index.html` sets `<html data-theme>` before first paint.
+  Colors are tokens in `:root` (Day) with Night overrides under `[data-theme="dark"]`; shadows use
+  `rgba(var(--shade), a)` and text on yellow uses `var(--on-sun)` so both follow the theme.
+  - **Night** (`dark`): navy `#0D3B66` ink and blocks on `#0c1b2b`, sun yellow `#F5D93B`
+    accents, slate `#86A1B5`. Hero: moonglow and fireflies that gather at the pointer.
+  - **Day** (`light`): a misty pine forest. Sage-gray mist `#dfe6e0` background, deep pine
+    `#1d3a2e` ink, pine `#24473a` blocks, sage `#7d978a` bars, sage tint bands. Hero: sunbeams,
+    drifting mist, blurred foliage in the top corners, and dewdrops (`DewField.jsx`) that twinkle
+    silver-white and flash brighter where the pointer (the sunbeam) passes.
+  - Both atmospheres live in `HeroSky.jsx`, home hero only, and stop under reduced motion.
 - **Type:** Poppins for everything; Gochi Hand for short handwritten notes only
   ("that's me!", annotations). Never use the hand font for long text; it is hard to read on phones.
 - **Motifs:** heading with a slate vertical bar (`.barhead`), centered heading between two lines
