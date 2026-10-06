@@ -703,21 +703,62 @@ figcaption.hand {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1rem;
   align-items: end;
-  padding: clamp(1.2rem, 4vw, 2.5rem);
+  padding: clamp(1.4rem, 4vw, 2.6rem) clamp(1.2rem, 4vw, 2.5rem) 1.1rem;
   border-radius: 22px;
-  background: var(--tint-cream);
+  /* DOK-MAI's sketchbook paper; the flowers stand on a strip of crayon-green grass */
+  background:
+    linear-gradient(to top, #a9cf9b 0, #a9cf9b 2rem, #8fbf7f 2rem, #8fbf7f calc(2rem + 3px), transparent calc(2rem + 3px)),
+    #faf3e5;
+  box-shadow: inset 0 0 0 1.5px rgba(23, 19, 12, 0.08);
 }
 .garden img {
   max-height: 170px;
   width: auto;
   margin: 0 auto;
-  transition: transform 0.3s;
+  transform-origin: 50% 100%;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 4px rgba(23, 19, 12, 0.12));
+  transition:
+    transform 0.45s cubic-bezier(0.3, 1.6, 0.5, 1),
+    filter 0.3s;
 }
 .garden img:nth-child(odd) {
   transform: rotate(-4deg);
 }
 .garden img:nth-child(even) {
   transform: rotate(3deg);
+}
+/* hover: the flower grows and sways from its stem */
+.garden img:hover {
+  transform: scale(1.22) rotate(0deg);
+  filter: drop-shadow(0 10px 10px rgba(23, 19, 12, 0.18));
+  animation: flower-sway 1.6s ease-in-out 0.45s infinite;
+}
+@keyframes flower-sway {
+  0%,
+  100% {
+    transform: scale(1.22) rotate(0deg);
+  }
+  30% {
+    transform: scale(1.22) rotate(-5deg);
+  }
+  70% {
+    transform: scale(1.22) rotate(5deg);
+  }
+}
+@media (max-width: 640px) {
+  .garden {
+    row-gap: 2.2rem;
+    background:
+      linear-gradient(to top, #a9cf9b 0, #a9cf9b 2rem, #8fbf7f 2rem, #8fbf7f calc(2rem + 3px), transparent calc(2rem + 3px)),
+      linear-gradient(to top, transparent 0, transparent 52%, #a9cf9b 52%, #a9cf9b calc(52% + 1.6rem), transparent calc(52% + 1.6rem)),
+      #faf3e5;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .garden img:hover {
+    animation: none;
+  }
 }
 .pair {
   display: grid;
