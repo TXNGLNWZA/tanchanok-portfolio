@@ -52,12 +52,12 @@ const DEMO = [
 ];
 
 const GARDEN_CALLOUTS = [
-  { label: "Visit other gardens", x: 0.14, y: 0.28, side: "left" },
-  { label: "Each flower is a planted song", x: 0.3, y: 0.5, side: "left" },
-  { label: "The song that is playing", x: 0.07, y: 0.775, side: "left" },
-  { label: "Garden name", x: 0.82, y: 0.165, side: "right" },
-  { label: "Share your garden", x: 0.86, y: 0.28, side: "right" },
-  { label: "Play, pause and skip", x: 0.8, y: 0.845, side: "right" },
+  { label: "Visit other gardens", x: 0.184, y: 0.290, side: "left" },
+  { label: "Each flower is a planted song", x: 0.325, y: 0.500, side: "left" },
+  { label: "The song that is playing", x: 0.123, y: 0.762, side: "left" },
+  { label: "Garden name", x: 0.781, y: 0.181, side: "right" },
+  { label: "Share your garden", x: 0.816, y: 0.290, side: "right" },
+  { label: "Play, pause and skip", x: 0.763, y: 0.829, side: "right" },
 ];
 
 const CHOICES = [
@@ -138,7 +138,7 @@ export default function DokMai({ project }) {
         <div className="cs-text">
           <p>The garden screen holds everything at once: your plot, the song playing, and ways to share it.</p>
         </div>
-        <Annotated img="demo-dok-garden" alt="DOK-MAI garden screen on a phone" callouts={GARDEN_CALLOUTS} width={280} />
+        <Annotated img="dokmai-phone-garden" alt="DOK-MAI garden screen on a phone" callouts={GARDEN_CALLOUTS} width={300} />
       </Sec>
 
       <Sec title="Design choices">

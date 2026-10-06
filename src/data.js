@@ -78,6 +78,7 @@ const IMG_SIZES = {
   "tripped-duck-white": [400, 375],
   "tripped-duck-black": [400, 375],
   "dokmai-picker": [340, 700],
+  "dokmai-phone-garden": [310, 635],
   "demo-dok-search": [273, 605],
   "demo-dok-pick": [419, 926],
   "demo-dok-garden": [272, 605],
