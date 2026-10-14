@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { KT } from "./khwanThong.js";
 
 /* Live versions of the care center components. The Thai text is Khwan Thong drawn as outlines
@@ -19,6 +19,68 @@ function T({ w, bold = false, size = 1 }) {
     >
       <path d={g.d} fill="currentColor" />
     </svg>
+  );
+}
+
+/* Username field. Khwan Thong can't be shipped as a font, so free typing would fall back to
+   another typeface. Instead, focusing the field types a sample username in real Khwan Thong
+   outlines, one letter at a time with a caret; focusing again types it afresh. */
+const USERNAME = "caregiver01";
+function TypingField() {
+  const g = KT[`Regular:${USERNAME}`];
+  const [n, setN] = useState(0);
+  const [active, setActive] = useState(false);
+  const timer = useRef(0);
+  useEffect(() => () => clearInterval(timer.current), []);
+  const start = () => {
+    clearInterval(timer.current);
+    setActive(true);
+    setN(0);
+    let i = 0;
+    timer.current = setInterval(() => {
+      i += 1;
+      setN(i);
+      if (i >= g.stops.length) clearInterval(timer.current);
+    }, 110);
+  };
+  const shown = n ? g.stops[n - 1] : 0;
+  const em = 1.25; // line box height in em, same as the other words
+  return (
+    <label className="ek-field">
+      <span className="ek-label">
+        <T w="ชื่อผู้ใช้" bold size={1.05} />
+      </span>
+      <span
+        className={`ek-input${active ? " active" : ""}`}
+        role="textbox"
+        aria-readonly="true"
+        aria-label={`Username, example: ${USERNAME}`}
+        tabIndex={0}
+        onFocus={start}
+        onMouseDown={(e) => {
+          e.preventDefault();
+          e.currentTarget.focus();
+          start();
+        }}
+        onBlur={() => setActive(false)}
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        </svg>
+        <span className="ek-typed" aria-hidden="true">
+          <svg
+            className="kt"
+            viewBox={`0 0 ${shown || 1} ${g.h}`}
+            preserveAspectRatio="xMinYMid slice"
+            style={{ height: `${em}em`, width: `${((em * shown) / g.h).toFixed(3)}em` }}
+          >
+            <path d={g.d} fill="currentColor" />
+          </svg>
+          {active && <i className="ek-caret" />}
+        </span>
+      </span>
+    </label>
   );
 }
 
@@ -45,19 +107,8 @@ export function ElderlyLiveKit() {
       </div>
 
       <div className="ek-cell">
-        <label className="ek-field">
-          <span className="ek-label">
-            <T w="ชื่อผู้ใช้" bold size={1.05} />
-          </span>
-          <span className="ek-input">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.8" />
-              <path d="M4.5 20c1.2-3.6 4-5.2 7.5-5.2s6.3 1.6 7.5 5.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-            <input type="text" aria-label="Username" />
-          </span>
-        </label>
-        <p className="ek-cap">Text field with icon</p>
+        <TypingField />
+        <p className="ek-cap">Text field with icon · click to type</p>
       </div>
 
       <div className="ek-cell ek-tint">

@@ -203,7 +203,10 @@ Derived from her original portfolio design (a long collage-style Figma/Canva pag
   to Srinakharinwirot University (fsType 4, no web embedding), so the font file must never be
   shipped. The live components (`ElderlyKit.jsx`: primary button, text field, status filters,
   date chips, medication card, status badges) draw their Thai text from `khwanThong.js`, outlines
-  of only those words shaped with HarfBuzz from her local copy (Tanchanok chose this). To add a
+  of only those words shaped with HarfBuzz from her local copy (Tanchanok chose this). Free typing is
+  impossible without the font, so the username field is not a real input: focusing it types the
+  sample `caregiver01` in Khwan Thong outlines letter by letter (`stops` = per-letter x positions).
+  Every text a visitor sees in a live component must be in that project's real font. To add a
   word, rerun the outline script with the font from `Downloads/Khwan-Thong-Fontset...`. Type
   specimens and the remaining image components are crops of the 1920px screens. Colors were sampled
   from the screens.

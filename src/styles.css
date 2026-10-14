@@ -3744,3 +3744,47 @@ dialog.lb {
 .ek .ek-primary {
   font-size: 1.4rem;
 }
+
+/* Elderly care username field: types a sample username in Khwan Thong outlines */
+.ek-input {
+  cursor: text;
+  min-height: 2.9rem;
+}
+.ek-input:focus {
+  outline: none;
+}
+.ek-input.active {
+  box-shadow: 0 0 0 4px rgba(146, 86, 161, 0.3);
+}
+.ek-input.active svg:first-child {
+  color: #9256a1;
+  transform: scale(1.1);
+}
+.ek-typed {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.15rem;
+  color: #2c1b47;
+}
+.ek-caret {
+  width: 2px;
+  height: 1.2em;
+  margin-left: 2px;
+  background: #2c1b47;
+  animation: ek-blink 1s steps(1) infinite;
+}
+@keyframes ek-blink {
+  50% {
+    opacity: 0;
+  }
+}
+/* TRIPPED inputs use Montserrat Medium, as in the app */
+.kit-input input {
+  font-family: Montserrat, var(--display);
+  font-weight: 500;
+}
+.ek-input .ek-typed .kt,
+.ek-input:focus-within .ek-typed .kt {
+  color: #2c1b47;
+  transform: none;
+}
