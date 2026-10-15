@@ -14,6 +14,7 @@ fonttools and uharfbuzz.
 | `elderly.py` | `elderly-hero`: login screen on a laptop and an iPhone; also the `iphone()` frame helper |
 | `eld2.py` | Elderly care admin screens in a 16:9 laptop, caregiver screens in iPhones |
 | `eld3.py` | Elderly care "Before" callouts (zoomed pop-up beside the full screen) |
+| `card.py`, `eldcard.py` | Work-card images on the home page (`tripped-card`, `elderly-card`) |
 | `tripped_devices.py` | TRIPPED laptop + phone mockups |
 | `pdfpages.py`, `pdf2x.py` | TRIPPED guide pages and PDF stacks rendered from the itinerary PDFs |
 | `outline.py` | `khwanThong.js`: outlines of the Khwan Thong words used by the live Elderly care components. Needs the licensed font files, which must never be committed. |
